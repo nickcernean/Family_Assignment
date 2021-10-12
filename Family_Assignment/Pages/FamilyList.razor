@@ -1,0 +1,32 @@
+﻿@page "/FamilyList"
+@using Family_Assignment.Data
+@inject IFamilyReader fileReader
+@inject NavigationManager NavMgr
+<h3>FamilyList</h3>
+
+@if (toShowFamilies == null)
+{
+    <p>no family found</p>
+}
+else
+{
+    <table class="table">
+        <thead class="table-primary">
+        <tr>
+            <th>StreetName</th>
+            <th>HouseNumber</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in toShowFamilies)
+        {
+            <tr>
+                <td>@item.StreetName</td>
+                <td>@item.HouseNumber</td>
+                <td><a class="btn btn-primary" @onclick="() => NavigateToFamily()">View</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
