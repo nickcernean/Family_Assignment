@@ -24,7 +24,7 @@ else
             <tr>
                 <td>@item.StreetName</td>
                 <td>@item.HouseNumber</td>
-                <td><a class="btn btn-primary" @onclick="() => NavigateToFamily()">View</a></td>
+                <td><a class="btn btn-primary" @onclick="() => NavigateToFamily(item.StreetName, item.HouseNumber)">View</a></td>
             </tr>
         }
         </tbody>

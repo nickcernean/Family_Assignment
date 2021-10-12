@@ -1,3 +1,56 @@
-﻿@page "/FamilyView"
+﻿@page "/FamilyView/{StreetName}/{HouseNumber:int}"
+@using Family_Assignment.Data
+@inject IFamilyReader fileReader
+@inject NavigationManager NavMgr
 <h3>FamilyView</h3>
 
+<div class="card-body pt-0">
+    <table class="table table-bordered">
+        <tr>
+            <th width="30%">StreetName</th>
+            <td width="2%">:</td>
+            <td>@StreetName</td>
+        </tr>
+        <tr>
+            <th width="30%">HouseName</th>
+            <td width="2%">:</td>
+            <td>@HouseNumber</td>
+        </tr>
+        
+    </table>
+</div>
+
+<h4>Adults</h4>
+
+@if (toShowAdults == null)
+{
+    <p>no adults fount</p>
+}
+else
+{
+    <table class="table">
+        <thead class="table-primary">
+        <tr>
+            <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in toShowAdults)
+        {
+            <tr>
+                
+                        <td>@item.Id</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Age</td>
+                        <td>@item.Sex</td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+}
