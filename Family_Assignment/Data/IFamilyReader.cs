@@ -12,7 +12,7 @@ namespace Family_Assignment.Data
         void AddFamily(Family family);
         void RemoveFamily(Family family);
         void UpdateFamily(Family family);
-         Family GetFamily(string streetName, int streetNumber);
+         Family GetFamily(string streetName, int houseNumber);
         
     }
 }

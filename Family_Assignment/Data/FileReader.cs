@@ -1,33 +1,45 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Models;
 
 namespace Family_Assignment.Data
 {
-    public class FileReader: IFamilyReader
+    public class FileReader : IFamilyReader
     {
+        private FileContext FileContext;
+
+        public FileReader()
+        {
+            FileContext = new FileContext();
+        }
+
         public IList<Family> GetAllFamilies()
         {
-            throw new System.NotImplementedException();
+            return FileContext.Families;
         }
 
         public void AddFamily(Family family)
         {
-            throw new System.NotImplementedException();
+            FileContext.Families.Add(family);
+            FileContext.SaveChanges();
         }
 
         public void RemoveFamily(Family family)
         {
-            throw new System.NotImplementedException();
+            FileContext.Families.Remove(family);
+            FileContext.SaveChanges();
         }
 
         public void UpdateFamily(Family family)
         {
-            throw new System.NotImplementedException();
+            FileContext.Families.Remove(family);
+            FileContext.SaveChanges();
         }
 
-        public Family GetFamily(string streetName, int streetNumber)
+        public Family GetFamily(string streetName, int houseNumber)
         {
-            throw new System.NotImplementedException();
+            return GetAllFamilies().FirstOrDefault(family =>
+                family.StreetName.Equals(streetName) && family.HouseNumber.Equals(houseNumber));
         }
     }
 }
