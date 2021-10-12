@@ -18,7 +18,8 @@ namespace Family_Assignment.Data
         public FileContext()
         {
             Families = File.Exists(familiesFile) ? ReadData<Family>(familiesFile) : new List<Family>();
-            
+            Users = File.Exists(usersFile) ? ReadData<User>(usersFile) : new List<User>();
+
         }
         private IList<T> ReadData<T>(string s)
         {
@@ -38,6 +39,17 @@ namespace Family_Assignment.Data
             {
                 outputFile.Write(jsonFamilies);
             }
+            
+            //Sending users IList to users.json file
+            string jsonUsers = JsonSerializer.Serialize(Users, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+            using (StreamWriter outputFile = new StreamWriter(usersFile, false))
+            {
+                outputFile.Write(jsonUsers);
+            }
+            
         }
     }
 }

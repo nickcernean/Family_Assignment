@@ -8,20 +8,18 @@ namespace Family_Assignment.Data
     public class UserReader : IUserReader
     {
         private FileContext FileContext;
-        
+        private IList<User> users;
+
         public UserReader()
         {
             FileContext = new FileContext();
+            users = FileContext.Users;
         }
-
-        public IList<User> GetUsers()
-        {
-            return FileContext.Users;
-        }
+        
 
         public User ValidateUser(string userName, string password)
         {
-            User checkUser = GetUsers().FirstOrDefault(user => user.UserName.Equals(userName));
+            User checkUser = users.FirstOrDefault(user => user.UserName.Equals(userName));
 
             if (checkUser == null)
             {
@@ -36,9 +34,9 @@ namespace Family_Assignment.Data
             return checkUser;
         }
 
-        public bool IsUserRegistered(string userName, string password)
+        public User RegisterUser(string userName, string password)
         {
-            User checkUser = GetUsers().FirstOrDefault(user => user.UserName.Equals(userName));
+            User checkUser = users.FirstOrDefault(user => user.UserName.Equals(userName));
 
             if (checkUser != null)
             {
@@ -48,9 +46,9 @@ namespace Family_Assignment.Data
             User user = new User();
             user.UserName = userName;
             user.Password = password;
-            
-            GetUsers().Add(user);
-            return false;
+            users.Add(user);
+            FileContext.SaveChanges();
+            return user;
         }
     }
 }

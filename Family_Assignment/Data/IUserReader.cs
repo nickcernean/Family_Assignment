@@ -5,8 +5,7 @@ namespace Family_Assignment.Data
 {
     public interface IUserReader
     {
-        IList<User> GetUsers();
         User ValidateUser(string userName, string password);
-        bool IsUserRegistered(string userName, string password);
+        User RegisterUser(string userName, string password);
     }
 }
