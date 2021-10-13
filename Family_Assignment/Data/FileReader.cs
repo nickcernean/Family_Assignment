@@ -32,7 +32,8 @@ namespace Family_Assignment.Data
 
         public void UpdateFamily(Family family)
         {
-            FileContext.Families.Remove(family);
+            Family familyToUpdate = GetAllFamilies().First(t => t.StreetName.Equals(family.StreetName) && t.HouseNumber == family.HouseNumber);
+            familyToUpdate = family;
             FileContext.SaveChanges();
         }
 

@@ -1,0 +1,87 @@
+﻿@page "/ChildView/{StreetName}/{HouseNumber:int}/{Id:int}"
+@using Family_Assignment.Data
+@inject IFamilyReader fileReader
+@inject NavigationManager NavMgr
+<h3>Child</h3>
+
+<div class="card-body pt-0">
+    <table class="table table-bordered">
+        <tr>
+            <th width="30%">ID</th>
+            <td width="2%">:</td>
+            <td>@childToView.Id</td>
+        </tr>
+        <tr>
+            <th width="30%">First name</th>
+            <td width="2%">:</td>
+            <td>@childToView.FirstName</td>
+        </tr>
+        <tr>
+            <th width="30%">Last name</th>
+            <td width="2%">:</td>
+            <td>@childToView.LastName</td>
+        </tr>
+        <tr>
+            <th width="30%">Hair color</th>
+            <td width="2%">:</td>
+            <td>@childToView.HairColor</td>
+        </tr>
+        <tr>
+            <th width="30%">Eye color</th>
+            <td width="2%">:</td>
+            <td>@childToView.EyeColor</td>
+        </tr>
+        <tr>
+            <th width="30%">Age</th>
+            <td width="2%">:</td>
+            <td>@childToView.Age</td>
+        </tr>
+        <tr>
+            <th width="30%">Weight</th>
+            <td width="2%">:</td>
+            <td>@childToView.Weight</td>
+        </tr>
+        <tr>
+            <th width="30%">Height</th>
+            <td width="2%">:</td>
+            <td>@childToView.Height</td>
+        </tr>
+        <tr>
+            <th width="30%">Gender</th>
+            <td width="2%">:</td>
+            <td>@childToView.Sex</td>
+        </tr>
+    </table>
+</div>
+
+@if (childToView.Pets.Count == 0)
+{
+    <h3>No Pets</h3>
+    <a class="btn btn-success mb-2" @onclick="() => NavigateToAddPet()">Add Pet</a>
+}
+else
+{
+    <h3>Pets</h3>
+    <table class="table">
+        <thead class="table-primary">
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Age</th>
+            <th>Sex</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in childsPets)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Species</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
