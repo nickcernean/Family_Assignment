@@ -15,6 +15,7 @@ namespace Family_Assignment.Pages
         
         private Child childToView { get; set; }
         private IList<Pet> childsPets { get; set; }
+        private IList<Interest> childsInterests { get; set; }
 
 
         
@@ -22,11 +23,16 @@ namespace Family_Assignment.Pages
         {
             childToView = fileReader.GetFamily(StreetName,HouseNumber).Children.Find(t => t.Id == Id);
             childsPets = childToView.Pets;
+            childsInterests = childToView.Interests;
         }
         
         public void NavigateToAddPet()
         {
             NavMgr.NavigateTo($"AddPet/{StreetName}/{HouseNumber}/{Id}");
+        }
+        public void NavigateToAddInterest()
+        {
+            NavMgr.NavigateTo($"AddInterest/{StreetName}/{HouseNumber}/{Id}");
         }
     }
 }

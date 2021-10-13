@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Models;
 
@@ -21,8 +22,8 @@ namespace Family_Assignment.Pages
 
         private void AddNewChild()
         {
-            childToAdd.Interests = null;
-            childToAdd.Pets = null;
+            childToAdd.Interests = new List<Interest>();
+            childToAdd.Pets = new List<Pet>();
             childToAdd.Id = getNewId();
             Family forUpdate = fileReader.GetFamily(StreetName, HouseNumber);
             forUpdate.Children.Add(childToAdd);

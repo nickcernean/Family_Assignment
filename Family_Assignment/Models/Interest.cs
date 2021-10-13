@@ -4,8 +4,8 @@ namespace Models
 {
     public class Interest
     {
-        public string Type;
-        public string Description;
+        public string Type { get; set; }
+        public string Description{ get; set; }
         
 
 
