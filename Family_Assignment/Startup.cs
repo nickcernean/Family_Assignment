@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Family_Assignment.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,7 @@ namespace Family_Assignment
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<IFamilyReader, FileReader>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,10 +5,10 @@ namespace Models
 {
     public class Family
     {
-            public string StreetName { get; set; }
+        public string StreetName { get; set; }
         public int HouseNumber { get; set; }
 
-        private List<Adult> Adults { get; set; }
+        public List<Adult> Adults { get; set; }
         public List<Child> Children { get; set; }
         public List<Pet> Pets { get; set; }
 

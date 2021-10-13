@@ -1,0 +1,24 @@
+﻿@page "/AddChildren/{StreetName}/{HouseNumber:int}"
+@using Family_Assignment.Data
+@inject IFamilyReader fileReader
+@inject NavigationManager NavMgr
+<h3>AddChildren</h3>
+
+<EditForm Model="@childToAdd" OnValidSubmit="@AddNewChild">
+    <DataAnnotationsValidator/> <ValidationSummary/>
+    <div class="form-group"> First name:<br/> <InputText @bind-Value="childToAdd.FirstName"/> </div>
+    <div class="form-group"> Last name:<br/> <InputText @bind-Value="childToAdd.LastName"/> </div>
+    <div class="form-group"> Hair color:<br/> <InputText @bind-Value="childToAdd.HairColor"/> </div>
+    <div class="form-group"> Eye color:<br/> <InputText @bind-Value="childToAdd.EyeColor"/> </div>
+    <div class="form-group"> Age:<br/> <InputNumber @bind-Value="childToAdd.Age"/> </div>
+    <div class="form-group"> Weight:<br/> <InputNumber @bind-Value="childToAdd.Weight"/> </div>
+    <div class="form-group"> Height:<br/> <InputNumber @bind-Value="childToAdd.Height"/> </div>
+    <div class="form-group"> Sex:
+        <InputSelect @bind-Value="childToAdd.Sex">
+            <option value=""></option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </InputSelect></div>
+
+    <p class="actions"> <button class="btn btn-outline-dark" type="submit">Create</button> </p>
+</EditForm>
