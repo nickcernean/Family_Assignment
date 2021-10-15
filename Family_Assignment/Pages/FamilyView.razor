@@ -54,7 +54,7 @@ else
                     <a class="btn btn-primary" @onclick="() => NavigateToAdultView(item.Id)">View</a>
                 </td>
                 <td>
-                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
+                    <a class="btn btn-warning" @onclick="() => NavigateToEditAdult(item.Id)">Edit</a>
                     <a class="btn btn-danger" @onclick="() => DeleteAdult(item.Id)">Delete</a>
                 </td>
             </tr>
@@ -97,7 +97,7 @@ else
                     <a class="btn btn-primary" @onclick="() => NavigateToChildView(item.Id)">View</a>
                 </td>
                 <td>
-                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
+                    <a class="btn btn-warning" @onclick="() => NavigateToEditChildren(item.Id)">Edit</a>
                     <a class="btn btn-danger" @onclick="() => DeleteChildren(item.Id)">Delete</a>
                 </td>
             </tr>
@@ -135,7 +135,6 @@ else
                 <td>@item.Name</td>
                 <td>@item.Age</td>
                 <td>
-                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
                     <a class="btn btn-danger" @onclick="() => DeletePet(item.Id)">Delete</a>
                 </td>
             </tr>
