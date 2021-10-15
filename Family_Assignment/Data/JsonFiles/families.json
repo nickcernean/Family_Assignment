@@ -17,6 +17,21 @@
         "EyeColor": "Brown",
         "Weight": 39.8,
         "Height": 174
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "aa",
+          "Salary": 111
+        },
+        "Age": 18,
+        "Sex": "M",
+        "Id": 1,
+        "FirstName": "a",
+        "LastName": "a",
+        "HairColor": "a",
+        "EyeColor": "a",
+        "Weight": 1,
+        "Height": 1
       }
     ],
     "Children": [
@@ -24,22 +39,40 @@
         "Interests": [
           {
             "Type": "a",
-            "Description": "safasfsafsafa"
+            "Description": "123"
+          },
+          {
+            "Type": "aa",
+            "Description": "12312"
           }
         ],
-        "Pets": [],
+        "Pets": [
+          {
+            "Id": 0,
+            "Species": "a",
+            "Name": "a",
+            "Age": 1
+          }
+        ],
         "Id": 1,
-        "FirstName": "a",
-        "LastName": "a",
-        "HairColor": "a",
-        "EyeColor": "a",
+        "FirstName": "as",
+        "LastName": "asd",
+        "HairColor": "asd",
+        "EyeColor": "asd",
         "Age": 1,
         "Weight": 1,
         "Height": 1,
         "Sex": "M"
       }
     ],
-    "Pets": []
+    "Pets": [
+      {
+        "Id": 1,
+        "Species": "ss",
+        "Name": "ss",
+        "Age": 1
+      }
+    ]
   },
   {
     "StreetName": "Innovation Avenue",

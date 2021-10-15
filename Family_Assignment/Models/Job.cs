@@ -7,7 +7,7 @@ namespace Models
     {
         public Job()
         {
-            JobTitle = "no job";
+            JobTitle = "no tittle";
             Salary = 0;
         }
         [Required]
