@@ -9,7 +9,7 @@
           "Salary": 99821
         },
         "Age": 58,
-        "Sex": "F",
+        "Sex": "M",
         "Id": 0,
         "FirstName": "Yasmine",
         "LastName": "Baxter",
@@ -23,15 +23,15 @@
           "JobTitle": "aa",
           "Salary": 111
         },
-        "Age": 18,
-        "Sex": "M",
+        "Age": 100,
+        "Sex": "F",
         "Id": 1,
-        "FirstName": "a",
-        "LastName": "a",
-        "HairColor": "a",
-        "EyeColor": "a",
-        "Weight": 1,
-        "Height": 1
+        "FirstName": "aaa",
+        "LastName": "aaa",
+        "HairColor": "aaa",
+        "EyeColor": "aaa",
+        "Weight": 100,
+        "Height": 100
       }
     ],
     "Children": [
@@ -55,14 +55,14 @@
           }
         ],
         "Id": 1,
-        "FirstName": "as",
-        "LastName": "asd",
-        "HairColor": "asd",
-        "EyeColor": "asd",
+        "FirstName": "a",
+        "LastName": "a",
+        "HairColor": "a",
+        "EyeColor": "a",
         "Age": 1,
         "Weight": 1,
         "Height": 1,
-        "Sex": "M"
+        "Sex": "F"
       }
     ],
     "Pets": [

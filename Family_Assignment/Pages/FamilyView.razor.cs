@@ -72,5 +72,14 @@ namespace Family_Assignment.Pages
         {
             NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{id}");
         }
+        
+        public void NavigateToEditAdult(int id)
+        {
+            NavMgr.NavigateTo($"EditAdult/{StreetName}/{HouseNumber}/{id}");
+        }
+        public void NavigateToEditChildren(int id)
+        {
+            NavMgr.NavigateTo($"EditChildren/{StreetName}/{HouseNumber}/{id}");
+        }
     }
 }
