@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Models;
@@ -13,11 +14,13 @@ namespace Family_Assignment.Pages
         private Child childToAdd;
         private Interest childsInterests;
         private Pet childPets;
+        private IList<Child> allChildren;
 
         protected override async Task OnInitializedAsync()
         {
             childToAdd = new Child();
-            //childsInterests = new Interest{Type = "no interes", Description = null};
+            allChildren = fileReader.GetFamily(StreetName, HouseNumber).Children;
+
         }
 
         private void AddNewChild()
@@ -33,10 +36,19 @@ namespace Family_Assignment.Pages
 
         private int getNewId()
         {
-            int result = 0;
-            foreach (Adult x in fileReader.GetFamily(StreetName, HouseNumber).Adults)
+            int result = allChildren.Count + 1;
+            int check = 1;
+            foreach (Child x in allChildren)
             {
-                result = x.Id + 1;
+                if (check == x.Id)
+                {
+                    check++;
+                }
+                else
+                {
+                    result = check;
+                    check++;
+                }
             }
 
             return result;

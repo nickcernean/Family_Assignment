@@ -70,7 +70,7 @@ else
             <th>FirstName</th>
             <th>LastName</th>
             <th>Age</th>
-            <th>Sex</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -81,6 +81,10 @@ else
                 <td>@item.Species</td>
                 <td>@item.Name</td>
                 <td>@item.Age</td>
+                <td>
+                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
+                    <a class="btn btn-danger" @onclick="() => DeletePet(item.Id)">Delete</a>
+                </td>
             </tr>
         }
         </tbody>
@@ -100,6 +104,7 @@ else
         <tr>
             <th>Type</th>
             <th>Description</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -108,6 +113,10 @@ else
             <tr>
                 <td>@item.Type</td>
                 <td>@item.Description</td>
+                <td>
+                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
+                    <a class="btn btn-danger" @onclick="() => DeleteInterests(item)">Delete</a>
+                </td>
             </tr>
         }
         </tbody>

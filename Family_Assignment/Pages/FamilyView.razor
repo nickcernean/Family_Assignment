@@ -38,6 +38,7 @@ else
             <th>Age</th>
             <th>Sex</th>
             <th>View</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -49,7 +50,13 @@ else
                 <td>@item.LastName</td>
                 <td>@item.Age</td>
                 <td>@item.Sex</td>
-                <td><a class="btn btn-primary" @onclick="() => NavigateToAdultView(item.Id)">View</a></td>
+                <td>
+                    <a class="btn btn-primary" @onclick="() => NavigateToAdultView(item.Id)">View</a>
+                </td>
+                <td>
+                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
+                    <a class="btn btn-danger" @onclick="() => DeleteAdult(item.Id)">Delete</a>
+                </td>
             </tr>
         }
         </tbody>
@@ -74,6 +81,7 @@ else
             <th>Age</th>
             <th>Sex</th>
             <th>View</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -85,7 +93,13 @@ else
                 <td>@item.LastName</td>
                 <td>@item.Age</td>
                 <td>@item.Sex</td>
-                <td><a class="btn btn-primary" @onclick="() => NavigateToChildView(item.Id)">View</a></td>
+                <td>
+                    <a class="btn btn-primary" @onclick="() => NavigateToChildView(item.Id)">View</a>
+                </td>
+                <td>
+                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
+                    <a class="btn btn-danger" @onclick="() => DeleteChildren(item.Id)">Delete</a>
+                </td>
             </tr>
         }
         </tbody>
@@ -108,7 +122,8 @@ else
             <th>Species</th>
             <th>Name</th>
             <th>Age</th>
-            <th>View</th>
+           
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -119,7 +134,10 @@ else
                 <td>@item.Species</td>
                 <td>@item.Name</td>
                 <td>@item.Age</td>
-                <td><a class="btn btn-primary" @onclick="() => NavigateToPetView(item.Id)">View</a></td>
+                <td>
+                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
+                    <a class="btn btn-danger" @onclick="() => DeletePet(item.Id)">Delete</a>
+                </td>
             </tr>
         }
         </tbody>
