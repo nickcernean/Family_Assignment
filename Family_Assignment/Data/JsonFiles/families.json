@@ -2,18 +2,128 @@
   {
     "StreetName": "Bay Avenue",
     "HouseNumber": 1,
-    "Children": [],
-    "Pets": []
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Mascot",
+          "Salary": 99821
+        },
+        "Age": 58,
+        "Sex": "M",
+        "Id": 0,
+        "FirstName": "Yasmine",
+        "LastName": "Baxter",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 39.8,
+        "Height": 174
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "aa",
+          "Salary": 111
+        },
+        "Age": 100,
+        "Sex": "F",
+        "Id": 1,
+        "FirstName": "aaa",
+        "LastName": "aaa",
+        "HairColor": "aaa",
+        "EyeColor": "aaa",
+        "Weight": 100,
+        "Height": 100
+      }
+    ],
+    "Children": [
+      {
+        "Interests": [
+          {
+            "Type": "a",
+            "Description": "123"
+          },
+          {
+            "Type": "aa",
+            "Description": "12312"
+          }
+        ],
+        "Pets": [
+          {
+            "Id": 0,
+            "Species": "a",
+            "Name": "a",
+            "Age": 1
+          }
+        ],
+        "Id": 1,
+        "FirstName": "a",
+        "LastName": "a",
+        "HairColor": "a",
+        "EyeColor": "a",
+        "Age": 1,
+        "Weight": 1,
+        "Height": 1,
+        "Sex": "F"
+      }
+    ],
+    "Pets": [
+      {
+        "Id": 1,
+        "Species": "ss",
+        "Name": "ss",
+        "Age": 1
+      }
+    ]
   },
   {
     "StreetName": "Innovation Avenue",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Front End Web Developer",
+          "Salary": 66408
+        },
+        "Age": 36,
+        "Sex": "F",
+        "Id": 1,
+        "FirstName": "Lyla",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 64.8,
+        "Height": 147
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "Business Development Manager",
+          "Salary": 71456
+        },
+        "Age": 34,
+        "Sex": "F",
+        "Id": 2,
+        "FirstName": "Samara",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 37,
+        "Height": 145
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Archery",
+            "Description": "Old sport with bow and arrow"
+          },
+          {
+            "Type": "Gaming",
+            "Description": "#PCMASTERRACE"
+          }
         ],
         "Pets": [],
         "Id": 1,
@@ -28,8 +138,14 @@
       },
       {
         "Interests": [
-          {},
-          {}
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Ultimate",
+            "Description": "Chasing flying saucers"
+          }
         ],
         "Pets": [],
         "Id": 2,
@@ -44,11 +160,26 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Drawing",
+            "Description": "Or doodling"
+          },
+          {
+            "Type": "Reading",
+            "Description": "Expand your horizon "
+          },
+          {
+            "Type": "Paper Plane Flying",
+            "Description": "Just crumble a paper into a ball and throw it"
+          },
+          {
+            "Type": "Harry Potter",
+            "Description": "Slightly more narrow than book reading"
+          },
+          {
+            "Type": "Gaming",
+            "Description": "#PCMASTERRACE"
+          }
         ],
         "Pets": [],
         "Id": 3,
@@ -67,11 +198,49 @@
   {
     "StreetName": "William Street",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Skin Care Specialist",
+          "Salary": 20545
+        },
+        "Age": 59,
+        "Sex": "F",
+        "Id": 3,
+        "FirstName": "Chaya",
+        "LastName": "Mcclure",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 32.4,
+        "Height": 167
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "Vice Principal",
+          "Salary": 72901
+        },
+        "Age": 50,
+        "Sex": "F",
+        "Id": 4,
+        "FirstName": "Ophelia",
+        "LastName": "Nathan",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 106,
+        "Height": 172
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {}
+          {
+            "Type": "Ninja Turtles",
+            "Description": "Young, genetically modified, secret assassin tortoise"
+          },
+          {
+            "Type": "Hockey",
+            "Description": "Not the one on ice"
+          }
         ],
         "Pets": [],
         "Id": 4,
@@ -86,7 +255,10 @@
       },
       {
         "Interests": [
-          {}
+          {
+            "Type": "Frozen",
+            "Description": "Can we let this one go?"
+          }
         ],
         "Pets": [],
         "Id": 5,
@@ -101,9 +273,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Choir Singing",
+            "Description": "Aka covey super spreader event"
+          },
+          {
+            "Type": "Bowling",
+            "Description": "Balls to the pins"
+          },
+          {
+            "Type": "Chess",
+            "Description": "The poor die first in war"
+          }
         ],
         "Pets": [],
         "Id": 6,
@@ -135,11 +316,49 @@
   {
     "StreetName": "Mitch Cromwood Avenue",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Teacher",
+          "Salary": 91588
+        },
+        "Age": 48,
+        "Sex": "M",
+        "Id": 5,
+        "FirstName": "Soham",
+        "LastName": "Fitzgerald",
+        "HairColor": "Black",
+        "EyeColor": "Grey",
+        "Weight": 131.6,
+        "Height": 177
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "Service Advisor",
+          "Salary": 72532
+        },
+        "Age": 44,
+        "Sex": "F",
+        "Id": 6,
+        "FirstName": "Anastasia",
+        "LastName": "Fitzgerald",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 99.8,
+        "Height": 147
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {}
+          {
+            "Type": "Reading",
+            "Description": "Expand your horizon "
+          },
+          {
+            "Type": "Comic Books",
+            "Description": "Cartoons are for children, comics are for adults"
+          }
         ],
         "Pets": [],
         "Id": 7,
@@ -154,7 +373,10 @@
       },
       {
         "Interests": [
-          {}
+          {
+            "Type": "Gymnastics",
+            "Description": "Dancing while throwing things in the air"
+          }
         ],
         "Pets": [],
         "Id": 8,
@@ -169,10 +391,22 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Ballet",
+            "Description": "Classic danse on your toes"
+          },
+          {
+            "Type": "Bowling",
+            "Description": "Balls to the pins"
+          },
+          {
+            "Type": "Fishing",
+            "Description": "Mostly just hiding from the wife"
+          },
+          {
+            "Type": "Painting",
+            "Description": "Slightly more fancy than drawing"
+          }
         ],
         "Pets": [
           {
@@ -194,11 +428,26 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Gymnastics",
+            "Description": "Dancing while throwing things in the air"
+          },
+          {
+            "Type": "Choir Singing",
+            "Description": "Aka covey super spreader event"
+          },
+          {
+            "Type": "Racing Cars",
+            "Description": "Drive super duper fast"
+          },
+          {
+            "Type": "Swimming",
+            "Description": "For people who identifies as fish"
+          },
+          {
+            "Type": "Lego",
+            "Description": "Deathtrap in the night"
+          }
         ],
         "Pets": [],
         "Id": 10,
@@ -217,11 +466,49 @@
   {
     "StreetName": "Elgin Avenue",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Janitor",
+          "Salary": 61437
+        },
+        "Age": 52,
+        "Sex": "F",
+        "Id": 7,
+        "FirstName": "Cataleya",
+        "LastName": "Mcintyre",
+        "HairColor": "Blond",
+        "EyeColor": "Blue",
+        "Weight": 56.8,
+        "Height": 172
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "Office Clerk",
+          "Salary": 41332
+        },
+        "Age": 42,
+        "Sex": "F",
+        "Id": 8,
+        "FirstName": "Andi",
+        "LastName": "Wells",
+        "HairColor": "Brown",
+        "EyeColor": "Amber",
+        "Weight": 27.6,
+        "Height": 148
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {}
+          {
+            "Type": "Gaming",
+            "Description": "#PCMASTERRACE"
+          },
+          {
+            "Type": "Barbie",
+            "Description": "Dolls with impossible body standards"
+          }
         ],
         "Pets": [],
         "Id": 11,
@@ -236,9 +523,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Archery",
+            "Description": "Old sport with bow and arrow"
+          },
+          {
+            "Type": "Choir Singing",
+            "Description": "Aka covey super spreader event"
+          },
+          {
+            "Type": "Scout",
+            "Description": "Gotta get all the emblems"
+          }
         ],
         "Pets": [],
         "Id": 12,
@@ -253,9 +549,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Hula Hoop",
+            "Description": "I guess you play with a ring"
+          },
+          {
+            "Type": "Tap Dancing",
+            "Description": "Clickity clack"
+          },
+          {
+            "Type": "Chess",
+            "Description": "The poor die first in war"
+          }
         ],
         "Pets": [],
         "Id": 13,
@@ -270,9 +575,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Bowling",
+            "Description": "Balls to the pins"
+          },
+          {
+            "Type": "Hockey",
+            "Description": "Not the one on ice"
+          }
         ],
         "Pets": [],
         "Id": 14,
@@ -287,10 +601,22 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Choir Singing",
+            "Description": "Aka covey super spreader event"
+          },
+          {
+            "Type": "Softball",
+            "Description": "Baseball for kids"
+          },
+          {
+            "Type": "Fishing",
+            "Description": "Mostly just hiding from the wife"
+          },
+          {
+            "Type": "Tractors",
+            "Description": "My nephew loves these"
+          }
         ],
         "Pets": [],
         "Id": 15,
@@ -305,7 +631,10 @@
       },
       {
         "Interests": [
-          {}
+          {
+            "Type": "Paper Plane Flying",
+            "Description": "Just crumble a paper into a ball and throw it"
+          }
         ],
         "Pets": [],
         "Id": 16,
@@ -324,12 +653,53 @@
   {
     "StreetName": "Railway Street",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Writer",
+          "Salary": 63392
+        },
+        "Age": 46,
+        "Sex": "F",
+        "Id": 9,
+        "FirstName": "Genevieve",
+        "LastName": "Cruz",
+        "HairColor": "Leverpostej",
+        "EyeColor": "Brown",
+        "Weight": 102.5,
+        "Height": 164
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "Casino Host",
+          "Salary": 35445
+        },
+        "Age": 39,
+        "Sex": "M",
+        "Id": 10,
+        "FirstName": "Lester",
+        "LastName": "Cruz",
+        "HairColor": "White",
+        "EyeColor": "Amber",
+        "Weight": 126.2,
+        "Height": 179
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Handball",
+            "Description": "Hands on the ball"
+          },
+          {
+            "Type": "Archery",
+            "Description": "Old sport with bow and arrow"
+          },
+          {
+            "Type": "Painting",
+            "Description": "Slightly more fancy than drawing"
+          }
         ],
         "Pets": [
           {
@@ -351,9 +721,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Tap Dancing",
+            "Description": "Clickity clack"
+          },
+          {
+            "Type": "Harry Potter",
+            "Description": "Slightly more narrow than book reading"
+          },
+          {
+            "Type": "Archery",
+            "Description": "Old sport with bow and arrow"
+          }
         ],
         "Pets": [
           {
@@ -375,10 +754,22 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Bike Riding",
+            "Description": "I like to ride my bicicle"
+          },
+          {
+            "Type": "Clay Modelling",
+            "Description": "Another ashtray?"
+          },
+          {
+            "Type": "Ultimate",
+            "Description": "Chasing flying saucers"
+          },
+          {
+            "Type": "Hockey",
+            "Description": "Not the one on ice"
+          }
         ],
         "Pets": [],
         "Id": 19,
@@ -393,9 +784,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Bike Riding",
+            "Description": "I like to ride my bicicle"
+          },
+          {
+            "Type": "Racing Cars",
+            "Description": "Drive super duper fast"
+          },
+          {
+            "Type": "Scout",
+            "Description": "Gotta get all the emblems"
+          }
         ],
         "Pets": [],
         "Id": 20,
@@ -421,12 +821,38 @@
   {
     "StreetName": "Airport Avenue",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Nurse",
+          "Salary": 36813
+        },
+        "Age": 32,
+        "Sex": "F",
+        "Id": 11,
+        "FirstName": "Zahra",
+        "LastName": "Salt",
+        "HairColor": "Brown",
+        "EyeColor": "Grey",
+        "Weight": 124.2,
+        "Height": 174
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Roller Blading",
+            "Description": "Shoes with wheels"
+          },
+          {
+            "Type": "Reading",
+            "Description": "Expand your horizon "
+          }
         ],
         "Pets": [],
         "Id": 21,
@@ -441,8 +867,14 @@
       },
       {
         "Interests": [
-          {},
-          {}
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Fishing",
+            "Description": "Mostly just hiding from the wife"
+          }
         ],
         "Pets": [
           {
@@ -464,9 +896,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Roller Blading",
+            "Description": "Shoes with wheels"
+          },
+          {
+            "Type": "Horseback Riding",
+            "Description": "Riding horses, on their backs, where else?"
+          },
+          {
+            "Type": "Barbie",
+            "Description": "Dolls with impossible body standards"
+          }
         ],
         "Pets": [],
         "Id": 23,
@@ -492,15 +933,50 @@
   {
     "StreetName": "Sycamore Drive",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Web Administrator",
+          "Salary": 44759
+        },
+        "Age": 59,
+        "Sex": "M",
+        "Id": 12,
+        "FirstName": "Zavier",
+        "LastName": "Huffman",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 54.4,
+        "Height": 166
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Scout",
+            "Description": "Gotta get all the emblems"
+          },
+          {
+            "Type": "Swimming",
+            "Description": "For people who identifies as fish"
+          },
+          {
+            "Type": "Handball",
+            "Description": "Hands on the ball"
+          },
+          {
+            "Type": "Mountain Biking",
+            "Description": "I like to ride my bicicle up hill"
+          },
+          {
+            "Type": "Gymnastics",
+            "Description": "Dancing while throwing things in the air"
+          },
+          {
+            "Type": "Ninja Turtles",
+            "Description": "Young, genetically modified, secret assassin tortoise"
+          }
         ],
         "Pets": [],
         "Id": 24,
@@ -515,7 +991,10 @@
       },
       {
         "Interests": [
-          {}
+          {
+            "Type": "Archery",
+            "Description": "Old sport with bow and arrow"
+          }
         ],
         "Pets": [],
         "Id": 25,
@@ -534,13 +1013,42 @@
   {
     "StreetName": "Hazlett Avenue",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Science Teacher",
+          "Salary": 55346
+        },
+        "Age": 33,
+        "Sex": "M",
+        "Id": 13,
+        "FirstName": "Arley",
+        "LastName": "Vaughn",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 55.4,
+        "Height": 171
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Comic Books",
+            "Description": "Cartoons are for children, comics are for adults"
+          },
+          {
+            "Type": "Racing Cars",
+            "Description": "Drive super duper fast"
+          },
+          {
+            "Type": "Reading",
+            "Description": "Expand your horizon "
+          },
+          {
+            "Type": "Harry Potter",
+            "Description": "Slightly more narrow than book reading"
+          }
         ],
         "Pets": [],
         "Id": 26,
@@ -555,7 +1063,10 @@
       },
       {
         "Interests": [
-          {}
+          {
+            "Type": "Clay Modelling",
+            "Description": "Another ashtray?"
+          }
         ],
         "Pets": [],
         "Id": 27,
@@ -570,9 +1081,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Reading",
+            "Description": "Expand your horizon "
+          },
+          {
+            "Type": "Barbie",
+            "Description": "Dolls with impossible body standards"
+          },
+          {
+            "Type": "Mountain Biking",
+            "Description": "I like to ride my bicicle up hill"
+          }
         ],
         "Pets": [],
         "Id": 28,
@@ -587,9 +1107,18 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {}
+          {
+            "Type": "Roller Blading",
+            "Description": "Shoes with wheels"
+          },
+          {
+            "Type": "Frozen",
+            "Description": "Can we let this one go?"
+          },
+          {
+            "Type": "Lego",
+            "Description": "Deathtrap in the night"
+          }
         ],
         "Pets": [],
         "Id": 29,
@@ -604,12 +1133,30 @@
       },
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Fishing",
+            "Description": "Mostly just hiding from the wife"
+          },
+          {
+            "Type": "Hockey",
+            "Description": "Not the one on ice"
+          },
+          {
+            "Type": "Tractors",
+            "Description": "My nephew loves these"
+          },
+          {
+            "Type": "Ballet",
+            "Description": "Classic danse on your toes"
+          },
+          {
+            "Type": "Horseback Riding",
+            "Description": "Riding horses, on their backs, where else?"
+          },
+          {
+            "Type": "Lego",
+            "Description": "Deathtrap in the night"
+          }
         ],
         "Pets": [],
         "Id": 30,
@@ -628,16 +1175,54 @@
   {
     "StreetName": "Easy Street",
     "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Call Center Agent",
+          "Salary": 20308
+        },
+        "Age": 44,
+        "Sex": "M",
+        "Id": 14,
+        "FirstName": "Isiah",
+        "LastName": "Esparza",
+        "HairColor": "Brown",
+        "EyeColor": "Brown",
+        "Weight": 81.8,
+        "Height": 172
+      }
+    ],
     "Children": [
       {
         "Interests": [
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {}
+          {
+            "Type": "Hockey",
+            "Description": "Not the one on ice"
+          },
+          {
+            "Type": "Tractors",
+            "Description": "My nephew loves these"
+          },
+          {
+            "Type": "Choir Singing",
+            "Description": "Aka covey super spreader event"
+          },
+          {
+            "Type": "Bowling",
+            "Description": "Balls to the pins"
+          },
+          {
+            "Type": "Ninja Turtles",
+            "Description": "Young, genetically modified, secret assassin tortoise"
+          },
+          {
+            "Type": "Scout",
+            "Description": "Gotta get all the emblems"
+          },
+          {
+            "Type": "Drawing",
+            "Description": "Or doodling"
+          }
         ],
         "Pets": [],
         "Id": 31,

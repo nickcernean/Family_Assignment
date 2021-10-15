@@ -1,0 +1,28 @@
+﻿@page "/AddPet/{StreetName}/{HouseNumber:int}/{IdOfChild:int}"
+@using Family_Assignment.Data
+@inject IFamilyReader fileReader
+@inject NavigationManager NavMgr
+<h3>AddPet</h3>
+
+@if (IdOfChild == 0)
+{
+    <EditForm Model="@petToAdd" OnValidSubmit="@AddNewPetToFamily">
+        <DataAnnotationsValidator/> <ValidationSummary/>
+        <div class="form-group"> Name:<br/> <InputText @bind-Value="petToAdd.Name"/> </div>
+        <div class="form-group"> Age:<br/> <InputNumber @bind-Value="petToAdd.Age"/> </div>
+        <div class="form-group"> Species:<br/> <InputText @bind-Value="petToAdd.Species"/> </div>
+        
+        <p class="actions"> <button class="btn btn-outline-dark" type="submit">Create</button> </p>
+    </EditForm>
+}
+else
+{
+    <EditForm Model="@petToAdd" OnValidSubmit="@AddNewPetToChild">
+        <DataAnnotationsValidator/> <ValidationSummary/>
+        <div class="form-group"> Name:<br/> <InputText @bind-Value="petToAdd.Name"/> </div>
+        <div class="form-group"> Age:<br/> <InputNumber @bind-Value="petToAdd.Age"/> </div>
+        <div class="form-group"> Species:<br/> <InputText @bind-Value="petToAdd.Species"/> </div>
+        
+        <p class="actions"> <button class="btn btn-outline-dark" type="submit">Create</button> </p>
+    </EditForm>
+}

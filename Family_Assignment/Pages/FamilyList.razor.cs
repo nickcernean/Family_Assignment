@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
@@ -17,9 +18,9 @@ namespace Family_Assignment.Pages
             toShowFamilies = allFamilies;
         }
 
-        public void NavigateToFamily()
+        public void NavigateToFamily(String StreetName, int HouseNumber)
         {
-            NavMgr.NavigateTo("FamilyView");
+            NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
         
     }

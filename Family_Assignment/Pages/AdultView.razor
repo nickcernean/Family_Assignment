@@ -1,0 +1,86 @@
+﻿@page "/AdultView/{StreetName}/{HouseNumber:int}/{Id:int}"
+@using Family_Assignment.Data
+@inject IFamilyReader fileReader
+@inject NavigationManager NavMgr
+<h3>Adult</h3>
+
+<div class="card-body pt-0">
+    <table class="table table-bordered">
+        <tr>
+            <th width="30%">ID</th>
+            <td width="2%">:</td>
+            <td>@adultToView.Id</td>
+        </tr>
+        <tr>
+            <th width="30%">First name</th>
+            <td width="2%">:</td>
+            <td>@adultToView.FirstName</td>
+        </tr>
+        <tr>
+            <th width="30%">Last name</th>
+            <td width="2%">:</td>
+            <td>@adultToView.LastName</td>
+        </tr>
+        <tr>
+            <th width="30%">Hair color</th>
+            <td width="2%">:</td>
+            <td>@adultToView.HairColor</td>
+        </tr>
+        <tr>
+            <th width="30%">Eye color</th>
+            <td width="2%">:</td>
+            <td>@adultToView.EyeColor</td>
+        </tr>
+        <tr>
+            <th width="30%">Age</th>
+            <td width="2%">:</td>
+            <td>@adultToView.Age</td>
+        </tr>
+        <tr>
+            <th width="30%">Weight</th>
+            <td width="2%">:</td>
+            <td>@adultToView.Weight</td>
+        </tr>
+        <tr>
+            <th width="30%">Height</th>
+            <td width="2%">:</td>
+            <td>@adultToView.Height</td>
+        </tr>
+        <tr>
+            <th width="30%">Gender</th>
+            <td width="2%">:</td>
+            <td>@adultToView.Sex</td>
+        </tr>
+    </table>
+</div>
+
+@if (adultToView.JobTitle.JobTitle.Equals("no tittle"))
+{
+    <h3>No Job</h3>
+    <EditForm Model="@newJob" OnValidSubmit="@AddJob">
+        <DataAnnotationsValidator/> <ValidationSummary/>
+        <div class="form-group"> Name:<br/> <InputText @bind-Value="newJob.JobTitle"/> </div>
+        <div class="form-group"> Salary:<br/> <InputNumber @bind-Value="newJob.Salary"/> </div>
+        <p class="actions"> <button class="btn btn-outline-success" type="submit">Create</button> </p>
+    </EditForm>
+}
+else
+{
+    <h3>Job</h3>
+    <div class="card-body pt-0">
+        <table class="table table-bordered">
+            <tr>
+                <th width="30%">Title</th>
+                <td width="2%">:</td>
+                <td>@jobToView.JobTitle</td>
+            </tr>
+            <tr>
+                <th width="30%">Salery</th>
+                <td width="2%">:</td>
+                <td>@jobToView.Salary</td>
+            </tr>
+         
+        </table>
+    </div>
+    <a class="btn btn-danger mb-2" @onclick="() => DeleteJob()">Delete job</a>
+}

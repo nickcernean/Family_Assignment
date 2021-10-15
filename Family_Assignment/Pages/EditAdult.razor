@@ -1,0 +1,32 @@
+@page "/EditAdult/{StreetName}/{HouseNumber:int}/{Id:int}"
+@using Family_Assignment.Data
+@inject IFamilyReader fileReader
+@inject NavigationManager NavMgr
+<h3>Edit Adult: @Id</h3>
+
+@if (adultToEdit == null)
+{
+    <em>Adult not found!</em>
+    
+}
+else
+{
+    <EditForm Model="@adultToEdit" OnValidSubmit="@Update">
+        <DataAnnotationsValidator/> <ValidationSummary/>
+        <div class="form-group"> FirstName:<br/> <InputText @bind-Value="adultToEdit.FirstName"/> </div>
+        <div class="form-group"> LastName:<br/> <InputText rows="4" @bind-Value="adultToEdit.LastName"/> </div>
+        <div class="form-group"> HairColor:<br/> <InputText rows="4" @bind-Value="adultToEdit.HairColor"/> </div>
+        <div class="form-group"> EyeColor:<br/> <InputText rows="4" @bind-Value="adultToEdit.EyeColor"/> </div>
+        <div class="form-group"> Age:<br/> <InputNumber rows="4" @bind-Value="adultToEdit.Age"/> </div>
+        <div class="form-group"> Weight:<br/> <InputNumber rows="4" @bind-Value="adultToEdit.Weight"/> </div>
+        <div class="form-group"> Height:<br/> <InputNumber rows="4" @bind-Value="adultToEdit.Height"/> </div>
+        <div class="form-group"> Sex:
+                <InputSelect @bind-Value="adultToEdit.Sex">
+                    <option value=""></option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </InputSelect></div>
+        <p class="actions"> <button class="btn btn-outline-dark" type="submit">Save</button> </p>
+    </EditForm>
+    
+}

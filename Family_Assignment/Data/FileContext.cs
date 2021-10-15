@@ -11,7 +11,7 @@ namespace Family_Assignment.Data
         public IList<User> Users { get; private set; }
 
         private readonly string familiesFile = "Data/JsonFiles/families.json";
-        private readonly string usersFile = "Data/JsonFiles/users.json";
+        //private readonly string usersFile = "Data/JsonFiles/users.json";
 
 
         
