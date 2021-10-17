@@ -1,0 +1,23 @@
+﻿@page "/register"
+@using Family_Assignment.Authentication
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>Register Form</h3>
+
+
+<div class="form-group">
+    <label>Username:</label>
+    <input type="text" @bind-value="username"/>
+</div>
+<div class="form-group">
+    <label>Password</label>
+    <input type="password" @bind-value="password"/>
+</div>
+
+<div style="color:red">@errorMessage</div>
+
+<button href="" @onclick="PerformRegister">
+    Sign up
+</button>
+

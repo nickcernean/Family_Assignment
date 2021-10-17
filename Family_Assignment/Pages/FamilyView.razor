@@ -21,7 +21,24 @@
 </div>
 
 <h4>Adults</h4>
-<a class="btn btn-success mb-2" @onclick="() => NavigateToAddAdult()">Add Adult</a>
+
+    <p>
+        Filter by:
+        <select class="form-control selectpicker" @onchange="@((arg) => FilterBy(arg))" style="width: 125px">
+            <option></option>
+            <option>Id</option>
+            <option>FirstName</option>
+            <option>LastName</option>
+        </select>
+    </p>
+    <p> <input type="text" @oninput="@((arg) => FilterArg(arg, "Adult"))" style="width: 125px"/></p>
+
+
+<AuthorizeView >
+    <Authorized >
+        <a class="btn btn-success mb-2" @onclick="() => NavigateToAddAdult()">Add Adult</a>
+    </Authorized>
+</AuthorizeView>
 
 @if (toShowAdults == null)
 {
@@ -30,41 +47,85 @@
 else
 {
     <table class="table">
-        <thead class="table-primary">
-        <tr>
-            <th>Id</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Age</th>
-            <th>Sex</th>
-            <th>View</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+        <AuthorizeView >
+            <Authorized >
+                <thead class="table-primary">
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                    <th>View</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+            </Authorized>
+            <NotAuthorized>
+                <thead class="table-primary">
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                </tr>
+                </thead>
+            </NotAuthorized>
+        </AuthorizeView>
         <tbody>
         @foreach (var item in toShowAdults)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.FirstName</td>
-                <td>@item.LastName</td>
-                <td>@item.Age</td>
-                <td>@item.Sex</td>
-                <td>
-                    <a class="btn btn-primary" @onclick="() => NavigateToAdultView(item.Id)">View</a>
-                </td>
-                <td>
-                    <a class="btn btn-warning" @onclick="() => NavigateToEditAdult(item.Id)">Edit</a>
-                    <a class="btn btn-danger" @onclick="() => DeleteAdult(item.Id)">Delete</a>
-                </td>
-            </tr>
+            <AuthorizeView >
+                <Authorized >
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Age</td>
+                        <td>@item.Sex</td>
+                        <td>
+                            <a class="btn btn-primary" @onclick="() => NavigateToAdultView(item.Id)">View</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" @onclick="() => NavigateToEditAdult(item.Id)">Edit</a>
+                            <a class="btn btn-danger" @onclick="() => DeleteAdult(item.Id)">Delete</a>
+                        </td>
+                    </tr>
+                </Authorized>
+                <NotAuthorized>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Age</td>
+                        <td>@item.Sex</td>
+                    </tr>
+                </NotAuthorized>
+            </AuthorizeView>
         }
         </tbody>
     </table>
 }
 
 <h4>Children</h4>
-<a class="btn btn-success mb-2" @onclick="() => NavigateToAddChildren()">Add Child</a>
+<p>
+        Filter by:
+        <select class="form-control selectpicker" @onchange="@((arg) => FilterBy(arg))" style="width: 125px">
+            <option></option>
+            <option>Id</option>
+            <option>FirstName</option>
+            <option>LastName</option>
+           
+        </select>
+    </p>
+<p> <input type="text" @oninput="@((arg) => FilterArg(arg, "Child"))" style="width: 125px"/></p>
+
+<AuthorizeView >
+    <Authorized >
+        <a class="btn btn-success mb-2" @onclick="() => NavigateToAddChildren()">Add Child</a>
+    </Authorized>
+</AuthorizeView>
 
 @if (toShowChildren == null)
 {
@@ -73,41 +134,75 @@ else
 else
 {
     <table class="table">
-        <thead class="table-primary">
-        <tr>
-            <th>Id</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Age</th>
-            <th>Sex</th>
-            <th>View</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+        <AuthorizeView >
+            <Authorized >
+                <thead class="table-primary">
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                    <th>View</th>
+                    <th>Action</th>
+
+                </tr>
+                </thead>
+
+            </Authorized>
+            <NotAuthorized>
+                <thead class="table-primary">
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                </tr>
+                </thead>
+            </NotAuthorized>
+        </AuthorizeView>
         <tbody>
         @foreach (var item in toShowChildren)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.FirstName</td>
-                <td>@item.LastName</td>
-                <td>@item.Age</td>
-                <td>@item.Sex</td>
-                <td>
-                    <a class="btn btn-primary" @onclick="() => NavigateToChildView(item.Id)">View</a>
-                </td>
-                <td>
-                    <a class="btn btn-warning" @onclick="() => NavigateToEditChildren(item.Id)">Edit</a>
-                    <a class="btn btn-danger" @onclick="() => DeleteChildren(item.Id)">Delete</a>
-                </td>
-            </tr>
+            <AuthorizeView >
+                <Authorized >
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Age</td>
+                        <td>@item.Sex</td>
+                        <td>
+                            <a class="btn btn-primary" @onclick="() => NavigateToChildView(item.Id)">View</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" @onclick="() => NavigateToEditChildren(item.Id)">Edit</a>
+                            <a class="btn btn-danger" @onclick="() => DeleteChildren(item.Id)">Delete</a>
+                        </td>
+                    </tr>
+                </Authorized>
+                <NotAuthorized>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Age</td>
+                        <td>@item.Sex</td>
+                    </tr>
+                </NotAuthorized>
+            </AuthorizeView>
         }
         </tbody>
     </table>
 }
 
 <h4>Pets</h4>
-<a class="btn btn-success mb-2" @onclick="() => NavigateToAddPet()">Add Pet</a>
+<AuthorizeView >
+    <Authorized >
+        <a class="btn btn-success mb-2" @onclick="() => NavigateToAddPet()">Add Pet</a>
+    </Authorized>
+</AuthorizeView>
 
 @if (toShowPets == null)
 {
@@ -116,28 +211,54 @@ else
 else
 {
     <table class="table">
-        <thead class="table-primary">
-        <tr>
-            <th>Id</th>
-            <th>Species</th>
-            <th>Name</th>
-            <th>Age</th>
-           
-            <th>Action</th>
-        </tr>
-        </thead>
+        <AuthorizeView >
+            <Authorized >
+                <thead class="table-primary">
+                <tr>
+                    <th>Id</th>
+                    <th>Species</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+
+            </Authorized>
+            <NotAuthorized>
+                <thead class="table-primary">
+                <tr>
+                    <th>Id</th>
+                    <th>Species</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+                </thead>
+            </NotAuthorized>
+        </AuthorizeView>
         <tbody>
         @foreach (var item in toShowPets)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Species</td>
-                <td>@item.Name</td>
-                <td>@item.Age</td>
-                <td>
-                    <a class="btn btn-danger" @onclick="() => DeletePet(item.Id)">Delete</a>
-                </td>
-            </tr>
+            <AuthorizeView >
+                <Authorized >
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Species</td>
+                        <td>@item.Name</td>
+                        <td>@item.Age</td>
+                        <td>
+                            <a class="btn btn-danger" @onclick="() => DeletePet(item.Id)">Delete</a>
+                        </td>
+                    </tr>
+                </Authorized>
+                <NotAuthorized>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Species</td>
+                        <td>@item.Name</td>
+                        <td>@item.Age</td>
+                    </tr>
+                </NotAuthorized>
+            </AuthorizeView>
         }
         </tbody>
     </table>
