@@ -20,7 +20,7 @@ namespace Family_Assignment.Pages
             errorMessage = "";
             try
             {
-                ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
+               await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
                 username = "";
                 password = "";
                 NavigationManager.NavigateTo("/");

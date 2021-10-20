@@ -1257,5 +1257,61 @@
       }
     ],
     "Pets": []
+  },
+  {
+    "StreetName": "string",
+    "HouseNumber": 0,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "string",
+          "Salary": 180000
+        },
+        "Age": 25,
+        "Sex": "string",
+        "Id": 0,
+        "FirstName": "string",
+        "LastName": "string",
+        "HairColor": "string",
+        "EyeColor": "string",
+        "Weight": 0,
+        "Height": 0
+      }
+    ],
+    "Children": [
+      {
+        "Interests": [
+          {
+            "Type": "string",
+            "Description": "string"
+          }
+        ],
+        "Pets": [
+          {
+            "Id": 0,
+            "Species": "string",
+            "Name": "string",
+            "Age": 0
+          }
+        ],
+        "Id": 0,
+        "FirstName": "string",
+        "LastName": "string",
+        "HairColor": "string",
+        "EyeColor": "string",
+        "Age": 0,
+        "Weight": 0,
+        "Height": 0,
+        "Sex": "string"
+      }
+    ],
+    "Pets": [
+      {
+        "Id": 0,
+        "Species": "string",
+        "Name": "string",
+        "Age": 0
+      }
+    ]
   }
 ]

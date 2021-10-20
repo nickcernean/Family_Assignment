@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Models;
 
 namespace Family_Assignment.Data
@@ -15,40 +19,33 @@ namespace Family_Assignment.Data
             FileContext = new FileContext();
             users = FileContext.Users;
         }
-        
 
-        public User ValidateUser(string userName, string password)
+
+        public async Task<User> ValidateUserAsync(string username)
         {
-            User checkUser = users.FirstOrDefault(user => user.UserName.Equals(userName));
-
+            var checkUser = users.FirstOrDefault(user => user.UserName.Equals(username));
             if (checkUser == null)
             {
-                throw new Exception("User not found");
+                throw new Exception("User not found or incorrect username");
             }
-
-            if (!checkUser.Password.Equals(password))
+            else
             {
-                throw new Exception("Wrong password");
+                return checkUser;
             }
-
-            return checkUser;
         }
 
-        public User RegisterUser(string userName, string password)
+        public async Task<User> RegisterUserAsync(User userToRegister)
         {
-            User checkUser = users.FirstOrDefault(user => user.UserName.Equals(userName));
+            User checkUser = users.FirstOrDefault(user => user.UserName.Equals(userToRegister.UserName));
 
             if (checkUser != null)
             {
                 throw new Exception("User already exist !");
             }
 
-            User user = new User();
-            user.UserName = userName;
-            user.Password = password;
-            users.Add(user);
+            users.Add(userToRegister);
             FileContext.SaveChanges();
-            return user;
+            return userToRegister;
         }
     }
 }

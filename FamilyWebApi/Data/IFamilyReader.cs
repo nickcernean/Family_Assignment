@@ -10,7 +10,7 @@ namespace Family_Assignment.Data
     public interface IFamilyReader
     {
         Task<IList<Family>> GetAllFamiliesAsync();
-        Task AddFamilyAsync(Family family);
+        Task<Family> AddFamilyAsync(Family family);
         Task RemoveFamilyAsync(Family family);
         Task<Family> UpdateFamilyAsync(Family family);
         Task<Family> GetFamilyAsync(string streetName, int houseNumber);

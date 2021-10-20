@@ -18,12 +18,7 @@ namespace Family_Assignment.Data
         {
             return FileContext.Families;
         }
-
-        Task IFamilyReader.AddFamilyAsync(Family family)
-        {
-            return AddFamilyAsync(family);
-        }
-
+        
         public async Task<Family> AddFamilyAsync(Family family)
         {
             FileContext.Families.Add(family);

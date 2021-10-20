@@ -6,23 +6,22 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Family_Assignment.Pages
 {
-    public partial class Register:ComponentBase
+    public partial class Register : ComponentBase
     {
         private string username;
         private string password;
-        // private string domain;
-        //  private int securityLevel;
         private string errorMessage;
 
-        
 
         public async Task PerformRegister()
         {
             errorMessage = "";
             try
             {
-                ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateRegister(username, password);
-                ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
+                await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateRegister(username,
+                    password);
+             //   await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username,
+           //         password);
                 username = "";
                 password = "";
                 NavigationManager.NavigateTo("/");

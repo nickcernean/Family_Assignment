@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Models;
 
 namespace Family_Assignment.Data
 {
     public interface IUserReader
     {
-        User ValidateUser(string userName, string password);
-        User RegisterUser(string userName, string password);
+       Task<User> ValidateUserAsync(string userName);
+        Task<User> RegisterUserAsync(User user);
     }
 }

@@ -54,11 +54,7 @@ namespace FamilyWebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Family>> AddFamily([FromBody] Family family)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
+            
             try
             {
                 Family familyAdded = await familyReader.AddFamilyAsync(family);
@@ -71,8 +67,8 @@ namespace FamilyWebApi.Controllers
             }
         }
 
-        [HttpPatch]
-        [Route("{streetName:string}/{streetNumber:string}")]
+      [HttpPatch]
+      // [Route("{streetName:regex}/{streetNumber}")]
         public async Task<ActionResult<Family>> Updatefamily([FromBody] Family family)
         {
             try
