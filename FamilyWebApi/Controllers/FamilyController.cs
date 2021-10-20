@@ -35,13 +35,29 @@ namespace FamilyWebApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-
-        [HttpDelete]
-        public async Task<ActionResult> DeleteFamily([FromBody] Family family)
+        [HttpGet]
+        [Route("{streetName}/{houseNumber:int}")]
+        public async Task<ActionResult<Family>> GetFamilyAsync(string streetName,int houseNumber)
         {
             try
             {
-                await familyReader.RemoveFamilyAsync(family);
+               Family family = await familyReader.GetFamilyAsync(streetName,houseNumber);
+                string familiesAsJson = JsonSerializer.Serialize(family);
+                return Ok(familiesAsJson);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("{streetName}/{houseNumber}")]
+        public async Task<ActionResult> DeleteFamily([FromRoute] string streetName, int houseNumber)
+        {
+            try
+            {
+                await familyReader.RemoveFamilyAsync(streetName,houseNumber);
                 return Ok();
             }
             catch (Exception e)
@@ -52,6 +68,7 @@ namespace FamilyWebApi.Controllers
         }
 
         [HttpPost]
+        [Route("{newFamily}")]
         public async Task<ActionResult<Family>> AddFamily([FromBody] Family family)
         {
             
@@ -68,7 +85,7 @@ namespace FamilyWebApi.Controllers
         }
 
       [HttpPatch]
-      // [Route("{streetName:regex}/{streetNumber}")]
+       [Route("{streetName}/{streetNumber}")]
         public async Task<ActionResult<Family>> Updatefamily([FromBody] Family family)
         {
             try

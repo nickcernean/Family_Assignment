@@ -7,13 +7,12 @@ using Models;
 
 namespace Family_Assignment.Pages
 {
-    public partial class ChildView:ComponentBase 
+    public partial class ChildView : ComponentBase
     {
-        [Parameter]
-        public int Id { set; get; }
+        [Parameter] public int Id { set; get; }
         [Parameter] public string StreetName { get; set; }
         [Parameter] public int HouseNumber { get; set; }
-        
+
         private Child childToView { get; set; }
         private IList<Pet> childsPets { get; set; }
         private IList<Interest> childsInterests { get; set; }
@@ -21,30 +20,31 @@ namespace Family_Assignment.Pages
         private Family updateFamily;
 
 
-        
         protected override async Task OnInitializedAsync()
         {
-            childToView = fileReader.GetFamily(StreetName,HouseNumber).Children.Find(t => t.Id == Id);
+            Family family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+            childToView = family.Children.Find(t => t.Id == Id);
             childsPets = childToView.Pets;
             childsInterests = childToView.Interests;
-            updateFamily = fileReader.GetFamily(StreetName, HouseNumber);
+            updateFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
         }
 
-        public void DeletePet(int id)
+        public async Task DeletePet(int id)
         {
             updateFamily.Children.First(x => x.Id == Id).Pets.Remove(childsPets.First(t => t.Id == id));
-            fileReader.UpdateFamily(updateFamily);
+            await fileReader.UpdateFamilyAsync(updateFamily);
         }
 
         public void DeleteInterests(Interest interest)
         {
             updateFamily.Children.First(x => x.Id == Id).Interests.Remove(interest);
         }
-        
+
         public void NavigateToAddPet()
         {
             NavMgr.NavigateTo($"AddPet/{StreetName}/{HouseNumber}/{Id}");
         }
+
         public void NavigateToAddInterest()
         {
             NavMgr.NavigateTo($"AddInterest/{StreetName}/{HouseNumber}/{Id}");

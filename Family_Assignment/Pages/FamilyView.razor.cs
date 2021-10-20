@@ -36,10 +36,10 @@ namespace Family_Assignment.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            updateFamily = fileReader.GetFamily(StreetName, HouseNumber);
-            allAdults = fileReader.GetFamily(StreetName, HouseNumber).Adults;
-            allChildren = fileReader.GetFamily(StreetName, HouseNumber).Children;
-            allPets = fileReader.GetFamily(StreetName, HouseNumber).Pets;
+            updateFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+            allAdults =  fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Adults;
+            allChildren = fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Children;
+            allPets =  fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Pets;
             toShowAdults = allAdults;
             toShowChildren = allChildren;
             toShowPets = allPets;
@@ -86,7 +86,7 @@ namespace Family_Assignment.Pages
             {
                 // if (filterById != null)
                 {
-                    filterByIdArg =int.Parse(eventArgs.Value.ToString());
+                    filterByIdArg = int.Parse(eventArgs.Value.ToString());
                 }
 
                 // if (filterByFirstName != null)
@@ -119,22 +119,22 @@ namespace Family_Assignment.Pages
                 .ToList();
         }
 
-        private void DeleteAdult(int Id)
+        private async Task DeleteAdult(int Id)
         {
             updateFamily.Adults.Remove(allAdults.First(t => t.Id == Id));
-            fileReader.UpdateFamily(updateFamily);
+            await fileReader.UpdateFamilyAsync(updateFamily);
         }
 
-        private void DeleteChildren(int Id)
+        private async Task DeleteChildren(int Id)
         {
             updateFamily.Children.Remove(allChildren.First(t => t.Id == Id));
-            fileReader.UpdateFamily(updateFamily);
+            await fileReader.UpdateFamilyAsync(updateFamily);
         }
 
-        private void DeletePet(int Id)
+        private async Task DeletePet(int Id)
         {
             updateFamily.Pets.Remove(allPets.First(t => t.Id == Id));
-            fileReader.UpdateFamily(updateFamily);
+            await fileReader.UpdateFamilyAsync(updateFamily);
         }
 
         private void NavigateToAddAdult()

@@ -20,27 +20,27 @@ namespace Family_Assignment.Pages
         protected override async Task OnInitializedAsync()
         {
             petToAdd = new Pet();
-            family = fileReader.GetFamily(StreetName, HouseNumber);
+            family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             listOfPets = family.Pets;
         }
 
-        private void AddNewPetToChild()
+        private async Task AddNewPetToChild()
         {
             family.Children.Find(t => t.Id == IdOfChild).Pets.Add(petToAdd);
-            fileReader.UpdateFamily(family);
+            await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{IdOfChild}");
         }
 
-        private void AddNewPetToFamily()
+        private async Task AddNewPetToFamily()
         {
-            petToAdd.Id = getNewId();
-            family = fileReader.GetFamily(StreetName, HouseNumber);
+            petToAdd.Id = GetNewId();
+            family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             family.Pets.Add(petToAdd);
-            fileReader.UpdateFamily(family);
+            await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
 
-        private int getNewId()
+        private int GetNewId()
         {
             int result = listOfPets.Count + 1;
             int check = 1;

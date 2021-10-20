@@ -14,7 +14,7 @@ namespace Family_Assignment.Pages
         
         protected override async Task OnInitializedAsync()
         {
-            allFamilies = fileReader.GetAllFamilies();
+            allFamilies = fileReader.GetAllFamiliesAsync().Result;
             toShowFamilies = allFamilies;
         }
 

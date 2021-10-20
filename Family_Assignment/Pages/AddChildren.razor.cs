@@ -19,18 +19,17 @@ namespace Family_Assignment.Pages
         protected override async Task OnInitializedAsync()
         {
             childToAdd = new Child();
-            allChildren = fileReader.GetFamily(StreetName, HouseNumber).Children;
-
+            allChildren = fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Children;
         }
 
-        private void AddNewChild()
+        private async Task AddNewChild()
         {
             childToAdd.Interests = new List<Interest>();
             childToAdd.Pets = new List<Pet>();
             childToAdd.Id = getNewId();
-            Family forUpdate = fileReader.GetFamily(StreetName, HouseNumber);
+            Family forUpdate = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             forUpdate.Children.Add(childToAdd);
-            fileReader.UpdateFamily(forUpdate);
+            await fileReader.UpdateFamilyAsync(forUpdate);
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
 

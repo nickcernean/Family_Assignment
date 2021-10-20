@@ -16,13 +16,13 @@ namespace Family_Assignment.Pages
         protected override async Task OnInitializedAsync()
         {
             interestToAdd = new Interest();
-            family = fileReader.GetFamily(StreetName, HouseNumber);
+            family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
         }
 
-        private void AddNewInterest()
+        private async Task AddNewInterest()
         {
             family.Children.Find(t => t.Id == IdOfChild).Interests.Add(interestToAdd);
-            fileReader.UpdateFamily(family);
+           await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{IdOfChild}");
         }
     }

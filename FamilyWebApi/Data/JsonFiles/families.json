@@ -1313,5 +1313,61 @@
         "Age": 0
       }
     ]
+  },
+  {
+    "StreetName": "zcxzcz",
+    "HouseNumber": 3,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "ads",
+          "Salary": 18000
+        },
+        "Age": 25,
+        "Sex": "d",
+        "Id": 15,
+        "FirstName": "xzcz",
+        "LastName": "dadasa",
+        "HairColor": "strdassing",
+        "EyeColor": "strinsadag",
+        "Weight": 123,
+        "Height": 123
+      }
+    ],
+    "Children": [
+      {
+        "Interests": [
+          {
+            "Type": "sadada",
+            "Description": "dadsadas"
+          }
+        ],
+        "Pets": [
+          {
+            "Id": 2,
+            "Species": "dasdas",
+            "Name": "sadsdadsa",
+            "Age": 12
+          }
+        ],
+        "Id": 3,
+        "FirstName": "dasda",
+        "LastName": "asda",
+        "HairColor": "sad",
+        "EyeColor": "dada",
+        "Age": 13,
+        "Weight": 12,
+        "Height": 102,
+        "Sex": "m"
+      }
+    ],
+    "Pets": [
+      {
+        "Id": 1,
+        "Species": "dasdas",
+        "Name": "dasadsa",
+        "Age": 5
+      }
+    ]
   }
 ]

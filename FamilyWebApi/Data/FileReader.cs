@@ -18,7 +18,7 @@ namespace Family_Assignment.Data
         {
             return FileContext.Families;
         }
-        
+
         public async Task<Family> AddFamilyAsync(Family family)
         {
             FileContext.Families.Add(family);
@@ -26,21 +26,23 @@ namespace Family_Assignment.Data
             return family;
         }
 
-        public async Task RemoveFamilyAsync(Family family)
+        public async Task RemoveFamilyAsync(string streetName, int houseNumber)
         {
+            Family family = await GetFamilyAsync(streetName, houseNumber);
             FileContext.Families.Remove(family);
             FileContext.SaveChanges();
         }
 
         public async Task<Family> UpdateFamilyAsync(Family family)
         {
-            Family familyToUpdate = GetAllFamiliesAsync().Result.First(t => t.StreetName.Equals(family.StreetName) && t.HouseNumber == family.HouseNumber);
+            Family familyToUpdate = GetAllFamiliesAsync().Result.First(t =>
+                t.StreetName.Equals(family.StreetName) && t.HouseNumber == family.HouseNumber);
             familyToUpdate = family;
             FileContext.SaveChanges();
             return familyToUpdate;
         }
-        
-        public async Task<Family>GetFamilyAsync(string streetName, int houseNumber)
+
+        public async Task<Family> GetFamilyAsync(string streetName, int houseNumber)
         {
             return GetAllFamiliesAsync().Result.FirstOrDefault(family =>
                 family.StreetName.Equals(streetName) && family.HouseNumber.Equals(houseNumber));

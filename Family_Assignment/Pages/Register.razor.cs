@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Family_Assignment.Authentication;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Family_Assignment.Pages
 {
@@ -20,8 +19,8 @@ namespace Family_Assignment.Pages
             {
                 await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateRegister(username,
                     password);
-             //   await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username,
-           //         password);
+                await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username,
+                    password);
                 username = "";
                 password = "";
                 NavigationManager.NavigateTo("/");
