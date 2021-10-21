@@ -1,3 +1,5 @@
+using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Models;
@@ -21,9 +23,13 @@ namespace Family_Assignment.Pages
 
         private async Task Update()
         {
-            Adult update = familyToEdit.Adults.Find(t => t.Id == Id);
-            update = adultToEdit;
-            await fileReader.UpdateFamilyAsync(familyToEdit);
+            Adult updateAdult = familyToEdit.Adults.Find(t => t.Id == adultToEdit.Id);
+            updateAdult = adultToEdit;
+           HttpStatusCode reponse= await fileReader.UpdateFamilyAsync(familyToEdit);
+           
+           Console.WriteLine(reponse == HttpStatusCode.OK);
+          Console.WriteLine(reponse == HttpStatusCode.InternalServerError);
+
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
     }

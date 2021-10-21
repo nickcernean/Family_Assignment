@@ -17,21 +17,6 @@
         "EyeColor": "Brown",
         "Weight": 39.8,
         "Height": 174
-      },
-      {
-        "JobTitle": {
-          "JobTitle": "aa",
-          "Salary": 111
-        },
-        "Age": 100,
-        "Sex": "F",
-        "Id": 1,
-        "FirstName": "aaa",
-        "LastName": "aaa",
-        "HairColor": "aaa",
-        "EyeColor": "aaa",
-        "Weight": 100,
-        "Height": 100
       }
     ],
     "Children": [
@@ -1369,5 +1354,247 @@
         "Age": 5
       }
     ]
+  },
+  {
+    "StreetName": "Innovation Avenue",
+    "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Front End Web Developer",
+          "Salary": 66408
+        },
+        "Age": 36,
+        "Sex": "F",
+        "Id": 1,
+        "FirstName": "jack01",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 64.8,
+        "Height": 147
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "Business Development Manager",
+          "Salary": 71456
+        },
+        "Age": 34,
+        "Sex": "F",
+        "Id": 2,
+        "FirstName": "Samara",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 37,
+        "Height": 145
+      }
+    ],
+    "Children": [
+      {
+        "Interests": [
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Archery",
+            "Description": "Old sport with bow and arrow"
+          },
+          {
+            "Type": "Gaming",
+            "Description": "#PCMASTERRACE"
+          }
+        ],
+        "Pets": [],
+        "Id": 1,
+        "FirstName": "Frederick",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Amber",
+        "Age": 10,
+        "Weight": 35,
+        "Height": 155,
+        "Sex": "M"
+      },
+      {
+        "Interests": [
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Ultimate",
+            "Description": "Chasing flying saucers"
+          }
+        ],
+        "Pets": [],
+        "Id": 2,
+        "FirstName": "Leopold",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Blue",
+        "Age": 6,
+        "Weight": 85.1,
+        "Height": 130,
+        "Sex": "M"
+      },
+      {
+        "Interests": [
+          {
+            "Type": "Drawing",
+            "Description": "Or doodling"
+          },
+          {
+            "Type": "Reading",
+            "Description": "Expand your horizon "
+          },
+          {
+            "Type": "Paper Plane Flying",
+            "Description": "Just crumble a paper into a ball and throw it"
+          },
+          {
+            "Type": "Harry Potter",
+            "Description": "Slightly more narrow than book reading"
+          },
+          {
+            "Type": "Gaming",
+            "Description": "#PCMASTERRACE"
+          }
+        ],
+        "Pets": [],
+        "Id": 3,
+        "FirstName": "Chiara",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Age": 15,
+        "Weight": 84.405,
+        "Height": 183,
+        "Sex": "F"
+      }
+    ],
+    "Pets": []
+  },
+  {
+    "StreetName": "Innovation Avenue",
+    "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Front End Web Developer",
+          "Salary": 66408
+        },
+        "Age": 36,
+        "Sex": "F",
+        "Id": 1,
+        "FirstName": "Jack02",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 64.8,
+        "Height": 147
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "Business Development Manager",
+          "Salary": 71456
+        },
+        "Age": 34,
+        "Sex": "F",
+        "Id": 2,
+        "FirstName": "Samara",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 37,
+        "Height": 145
+      }
+    ],
+    "Children": [
+      {
+        "Interests": [
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Archery",
+            "Description": "Old sport with bow and arrow"
+          },
+          {
+            "Type": "Gaming",
+            "Description": "#PCMASTERRACE"
+          }
+        ],
+        "Pets": [],
+        "Id": 1,
+        "FirstName": "Frederick",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Amber",
+        "Age": 10,
+        "Weight": 35,
+        "Height": 155,
+        "Sex": "M"
+      },
+      {
+        "Interests": [
+          {
+            "Type": "Board Games",
+            "Description": "Boardgaming like a family"
+          },
+          {
+            "Type": "Ultimate",
+            "Description": "Chasing flying saucers"
+          }
+        ],
+        "Pets": [],
+        "Id": 2,
+        "FirstName": "Leopold",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Blue",
+        "Age": 6,
+        "Weight": 85.1,
+        "Height": 130,
+        "Sex": "M"
+      },
+      {
+        "Interests": [
+          {
+            "Type": "Drawing",
+            "Description": "Or doodling"
+          },
+          {
+            "Type": "Reading",
+            "Description": "Expand your horizon "
+          },
+          {
+            "Type": "Paper Plane Flying",
+            "Description": "Just crumble a paper into a ball and throw it"
+          },
+          {
+            "Type": "Harry Potter",
+            "Description": "Slightly more narrow than book reading"
+          },
+          {
+            "Type": "Gaming",
+            "Description": "#PCMASTERRACE"
+          }
+        ],
+        "Pets": [],
+        "Id": 3,
+        "FirstName": "Chiara",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Age": 15,
+        "Weight": 84.405,
+        "Height": 183,
+        "Sex": "F"
+      }
+    ],
+    "Pets": []
   }
 ]

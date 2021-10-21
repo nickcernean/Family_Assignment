@@ -12,14 +12,15 @@ namespace Family_Assignment.Pages
         [Parameter] public int HouseNumber { get; set; }
 
         private Child childToAdd;
-        private Interest childsInterests;
+        private Interest childInterests;
         private Pet childPets;
         private IList<Child> allChildren;
 
         protected override async Task OnInitializedAsync()
         {
             childToAdd = new Child();
-            allChildren = fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Children;
+            Family family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+            allChildren = family.Children;
         }
 
         private async Task AddNewChild()

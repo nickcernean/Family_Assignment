@@ -19,7 +19,8 @@ namespace Family_Assignment.Pages
         {
             adultToAdd = new Adult();
             adultsJob = new Job {JobTitle = "no job", Salary = 0};
-            allAdults = fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Adults;
+            Family family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+            allAdults = family.Adults;
         }
 
         private async Task AddNewAdult()

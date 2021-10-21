@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Family_Assignment.Data;
+using FamilyWebApi.Data;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -38,7 +38,7 @@ namespace FamilyWebApi.Controllers
         [HttpGet]
         [Route("{streetName}/{houseNumber:int}")]
         public async Task<ActionResult<Family>> GetFamilyAsync(string streetName,int houseNumber)
-        {
+        {      Console.WriteLine("get family");
             try
             {
                Family family = await familyReader.GetFamilyAsync(streetName,houseNumber);
@@ -85,12 +85,16 @@ namespace FamilyWebApi.Controllers
         }
 
       [HttpPatch]
-       [Route("{streetName}/{streetNumber}")]
-        public async Task<ActionResult<Family>> Updatefamily([FromBody] Family family)
-        {
+       [Route("{streetName}/{streetNumber:int}")]
+        public async Task<ActionResult<Family>> UpdateFamily([FromBody] Family family)
+        {       Console.WriteLine("before try");
             try
-            {
+            {  
+                Console.WriteLine("before"+family.Adults[0].FirstName);
+                Console.WriteLine("before"+family.Adults[1].FirstName);
                 Family updatedFamily = await familyReader.UpdateFamilyAsync(family);
+                Console.WriteLine("after"+updatedFamily.Adults[0].FirstName);
+                Console.WriteLine("after"+updatedFamily.Adults[1].FirstName);
                 return Ok(updatedFamily);
             }
             catch (Exception e)

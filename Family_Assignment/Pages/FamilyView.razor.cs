@@ -37,9 +37,9 @@ namespace Family_Assignment.Pages
         protected override async Task OnInitializedAsync()
         {
             updateFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
-            allAdults =  fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Adults;
-            allChildren = fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Children;
-            allPets =  fileReader.GetFamilyAsync(StreetName, HouseNumber).Result.Pets;
+            allAdults = updateFamily.Adults;
+            allChildren =updateFamily.Children;
+            allPets =updateFamily.Pets;
             toShowAdults = allAdults;
             toShowChildren = allChildren;
             toShowPets = allPets;

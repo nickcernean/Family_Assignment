@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Models;
 
-namespace Family_Assignment.Data
+namespace FamilyWebApi.Data
 {
     public interface IUserReader
     {

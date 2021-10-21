@@ -1,7 +1,10 @@
 @inherits LayoutComponentBase
 @using Family_Assignment.Authentication
+@using Family_Assignment.Data
+@using Models
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@using Models;
 <AuthorizeView>
     <NotAuthorized >
         <div class="page">
@@ -44,6 +47,7 @@
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
 
+    IFamilyReader fileReader;
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
@@ -68,6 +72,7 @@
     public void NavigateToLogin()
     {
         NavigationManager.NavigateTo("/login");
+        
     }
 
     public void NavigateToRegister()

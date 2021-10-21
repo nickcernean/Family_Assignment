@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -34,8 +35,10 @@ namespace Family_Assignment.Data
             List<Family> families = new List<Family>();
             HttpResponseMessage responseMessage = await client.GetAsync(uri + "/Family");
             String reply = await responseMessage.Content.ReadAsStringAsync();
+            // Task<string> families = client.GetStringAsync(uri + "/Adult");
+            // string message = await families;
+            // IList<Family> result = JsonConvert.DeserializeObject<List<Family>>(message);
             families = JsonConvert.DeserializeObject<List<Family>>(reply);
-
             return families;
         }
 
@@ -57,11 +60,22 @@ namespace Family_Assignment.Data
 
         public async Task<HttpStatusCode> UpdateFamilyAsync(Family family)
         {
-            string serializedFamily = JsonConvert.SerializeObject(family);
-            StringContent content = new StringContent(serializedFamily, Encoding.UTF8, "application/json");
-            HttpResponseMessage responseMessage =
-                await client.PatchAsync($"{uri}/Family/{family.StreetName}/{family.HouseNumber}", content);
-            return responseMessage.StatusCode;
+            try
+            {
+                string serializedFamily = JsonConvert.SerializeObject(family);
+                Console.WriteLine("1st"+family.Adults[0].FirstName);
+                Console.WriteLine("2nd"+family.Adults[1].FirstName);
+
+                StringContent content = new StringContent(serializedFamily, Encoding.UTF8, "application/json");
+                HttpResponseMessage responseMessage =
+                    await client.PatchAsync($"{uri}/Family/{family.StreetName}/{family.HouseNumber}", content);
+                return responseMessage.StatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public async Task<Family> GetFamilyAsync(string streetName, int houseNumber)

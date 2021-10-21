@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Models;
 
-namespace Family_Assignment.Data
+namespace FamilyWebApi.Data
 {
     public class UserReader : IUserReader
     {

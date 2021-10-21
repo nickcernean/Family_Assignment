@@ -14,10 +14,11 @@ namespace Family_Assignment.Pages
         private Adult adultToView;
         private Job jobToView;
         private Job newJob;
+        private Family family;
         
         protected override async Task OnInitializedAsync()
         {
-            Family family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+             family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             adultToView = family.Adults.Find(t => t.Id == Id);
             newJob = new Job();
             jobToView = adultToView.JobTitle;

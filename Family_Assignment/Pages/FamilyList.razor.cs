@@ -7,14 +7,14 @@ using Models;
 
 namespace Family_Assignment.Pages
 {
-    public partial class FamilyList:ComponentBase
+    public partial class FamilyList : ComponentBase
     {
         private IList<Family> allFamilies;
         private IList<Family> toShowFamilies;
-        
+
         protected override async Task OnInitializedAsync()
         {
-            allFamilies = fileReader.GetAllFamiliesAsync().Result;
+            allFamilies = await fileReader.GetAllFamiliesAsync();
             toShowFamilies = allFamilies;
         }
 
@@ -22,6 +22,5 @@ namespace Family_Assignment.Pages
         {
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
-        
     }
 }
