@@ -7,95 +7,95 @@
 
 <EditForm Model="@adultToAdd" OnValidSubmit="@AddNewAdult">
     <div class="bg-green-100 py-32 min-h-screen px-0">
-  <!--   tip; mx-auto -- jagab ilusti keskele  -->
-  <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto">
+        <!--   tip; mx-auto -- jagab ilusti keskele  -->
+        <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto shadow-xl">
 
-    <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center">
                  
-                 <h3 class="inline-block w-40 text-right 
+                <h3 class="inline-block w-40 text-right 
                                                      font-bold text-green-700">AddAdult</h3> 
-              </div>
+            </div>
 
-      <!--       flex - asjad korvuti, nb! flex-1 - element kogu ylejaanud laius -->
-      <div class="flex items-center mb-5">
-          <!--         tip - here neede inline-block , but why? -->
-          <label for="name" class="inline-block w-20 mr-6 text-right 
+            <!--       flex - asjad korvuti, nb! flex-1 - element kogu ylejaanud laius -->
+            <div class="flex items-center mb-5">
+                <!--         tip - here neede inline-block , but why? -->
+                <label for="name" class="inline-block w-20 mr-6 text-right 
                                  font-bold text-gray-600">First name</label>
-          <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
                                                                        text-gray-600 placeholder-gray-400
                                                                        outline-none" @bind-Value="adultToAdd.FirstName"/>
-      </div>
-      <div class="flex items-center mb-5">
-          <!--         tip - here neede inline-block , but why? -->
-          <label for="name" class="inline-block w-20 mr-6 text-right 
+            </div>
+            <div class="flex items-center mb-5">
+                <!--         tip - here neede inline-block , but why? -->
+                <label for="name" class="inline-block w-20 mr-6 text-right 
                                        font-bold text-gray-600">Last name</label>
-          <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
                                                                              text-gray-600 placeholder-gray-400
                                                                              outline-none" @bind-Value="adultToAdd.LastName"/>
-       </div>
-       <div class="flex items-center mb-5">
-           <!--         tip - here neede inline-block , but why? -->
-           <label for="name" class="inline-block w-20 mr-6 text-right
+            </div>
+            <div class="flex items-center mb-5">
+                <!--         tip - here neede inline-block , but why? -->
+                <label for="name" class="inline-block w-20 mr-6 text-right
                                         font-bold text-gray-600">Hair color</label>
-           <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                               text-gray-600 placeholder-gray-400
                                                                               outline-none" @bind-Value="adultToAdd.HairColor"/>
-       </div>
-       <div class="flex items-center mb-5">
-           <!--         tip - here neede inline-block , but why? -->
-           <label for="name" class="inline-block w-20 mr-6 text-right
+            </div>
+            <div class="flex items-center mb-5">
+                <!--         tip - here neede inline-block , but why? -->
+                <label for="name" class="inline-block w-20 mr-6 text-right
                                         font-bold text-gray-600">Eye color</label>
-           <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                               text-gray-600 placeholder-gray-400
                                                                               outline-none" @bind-Value="adultToAdd.EyeColor"/>
-       </div>
+            </div>
 
 
 
-       <div class="flex items-center mb-5">
-           <!--         tip - here neede inline-block , but why? -->
-           <label for="number" class="inline-block w-20 mr-6 text-right
+            <div class="flex items-center mb-5">
+                <!--         tip - here neede inline-block , but why? -->
+                <label for="number" class="inline-block w-20 mr-6 text-right
                                          font-bold text-gray-600">Age</label>
-           <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                 text-gray-600 placeholder-gray-400
                                                                 outline-none" @bind-Value="adultToAdd.Age"/>
-       </div>
-       <div class="flex items-center mb-5">
-           <!--         tip - here neede inline-block , but why? -->
-           <label for="number" class="inline-block w-20 mr-6 text-right
+            </div>
+            <div class="flex items-center mb-5">
+                <!--         tip - here neede inline-block , but why? -->
+                <label for="number" class="inline-block w-20 mr-6 text-right
                                                font-bold text-gray-600">Weight</label>
-           <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                       text-gray-600 placeholder-gray-400
                                                                       outline-none" @bind-Value="adultToAdd.Weight"/>
-       </div>
-       <div class="flex items-center mb-5">
-           <!--         tip - here neede inline-block , but why? -->
-           <label for="number" class="inline-block w-20 mr-6 text-right
+            </div>
+            <div class="flex items-center mb-5">
+                <!--         tip - here neede inline-block , but why? -->
+                <label for="number" class="inline-block w-20 mr-6 text-right
                                                font-bold text-gray-600">Height</label>
-           <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                       text-gray-600 placeholder-gray-400
                                                                       outline-none" @bind-Value="adultToAdd.Height"/>
-       </div>
-       <div class="flex items-center mb-5">
-               <!--         tip - here neede inline-block , but why? -->
-               <label for="number" class="inline-block w-20 mr-6 text-right
+            </div>
+            <div class="flex items-center mb-5">
+                <!--         tip - here neede inline-block , but why? -->
+                <label for="number" class="inline-block w-20 mr-6 text-right
                                         font-bold text-gray-600">Gender</label>
-               <InputSelect @bind-Value="adultToAdd.Sex" class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                <InputSelect @bind-Value="adultToAdd.Sex" class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                              text-gray-600 placeholder-gray-400
                              outline-none">
-                   <option value=""></option>
-                   <option value="M">Male</option>
-                   <option value="F">Female</option>
-                   <option value="">HelikoPotter</option>
-               </InputSelect>
-             </div>
+                    <option value=""></option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="">HelikoPotter</option>
+                </InputSelect>
+            </div>
 
-      <div class="text-right text-red-700">
-          <DataAnnotationsValidator/> <ValidationSummary/>
-          <button class="py-3 px-8 bg-green-400 text-white font-bold" @onclick="@AddNewAdult">Submit</button>
-      </div>
+            <div class="text-right text-red-700">
+                <DataAnnotationsValidator/> <ValidationSummary/>
+                <button class="py-3 px-8 bg-green-400 text-white font-bold" @onclick="@AddNewAdult">Submit</button>
+            </div>
 
     
-  </div>
-</div>
+        </div>
+    </div>
 </EditForm>

@@ -2,6 +2,56 @@
 @using Family_Assignment.Data
 @inject IFamilyReader fileReader
 @inject NavigationManager NavMgr
+
+
+<div class="bg-green-100 py-32 min-h-screen px-0">
+    <!--   tip; mx-auto -- jagab ilusti keskele  -->
+    <div class="bg-white md:w-3/4 lg:w-1/5 mx-auto flex items-center justify-center shadow-xl">
+
+
+        <div class="bg-white rounded my-6">
+            <div class="flex items-center justify-center py-3 text-xl font-black">
+                <h3 class="text-green-700">Adult</h3>
+            </div>
+            <div class="bg-gradient-to-l from-blue-100 to-green-100 flex items-center justify-center py-3 text-xl border-4 border-gray-500 shadow-xl">
+                <svg class="h-20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+            </div>
+            <div class="flex items-center justify-center py-3 text-m ">
+                <p class="text-gray-500">&#64 @adultToView.FirstName @adultToView.LastName</p>
+            </div>
+            <div class="flex items-center justify-center py-3 text-m ">
+                <p class="text-black font-black px-2">Id: </p> <p class="px-2">@adultToView.Id</p>
+            </div>
+            <div class="flex items-center justify-center py-3 text-m ">
+                <p class="text-black font-black px-2">HairColor: </p> <p class="px-2">@adultToView.HairColor</p>
+            </div>
+            <div class="flex items-center justify-center py-3 text-m ">
+                <p class="text-black font-black px-2">EyeColor: </p> <p class="px-2">@adultToView.EyeColor</p>
+            </div>
+            <div class="flex items-center justify-center py-3 text-m ">
+                <p class="text-black font-black px-2">Age: </p> <p class="px-2">@adultToView.Age</p>
+            </div>
+            <div class="flex items-center justify-center py-3 text-m ">
+                <p class="text-black font-black px-2">Weight: </p> <p class="px-2">@adultToView.Weight</p>
+            </div>
+            <div class="flex items-center justify-center py-3 text-m ">
+                <p class="text-black font-black px-2">Height: </p> <p class="px-2">@adultToView.Height</p>
+            </div>
+            <div class="flex items-center justify-center py-3 text-m ">
+                <p class="text-black font-black px-2">Gender: </p> <p class="px-2">@adultToView.Sex</p>
+            </div>
+            
+        </div>
+
+
+    </div>
+</div>
+
+
 <h3>Adult</h3>
 
 <div class="card-body pt-0">
@@ -61,7 +111,9 @@
         <DataAnnotationsValidator/> <ValidationSummary/>
         <div class="form-group"> Name:<br/> <InputText @bind-Value="newJob.JobTitle"/> </div>
         <div class="form-group"> Salary:<br/> <InputNumber @bind-Value="newJob.Salary"/> </div>
-        <p class="actions"> <button class="btn btn-outline-success" type="submit">Create</button> </p>
+        <p class="actions">
+            <button class="btn btn-outline-success" type="submit">Create</button>
+        </p>
     </EditForm>
 }
 else
@@ -79,7 +131,7 @@ else
                 <td width="2%">:</td>
                 <td>@jobToView.Salary</td>
             </tr>
-         
+
         </table>
     </div>
     <a class="btn btn-danger mb-2" @onclick="() => DeleteJob()">Delete job</a>
