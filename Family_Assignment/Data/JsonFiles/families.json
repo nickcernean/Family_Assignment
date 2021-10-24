@@ -17,44 +17,13 @@
         "EyeColor": "Brown",
         "Weight": 39.8,
         "Height": 174
-      },
-      {
-        "JobTitle": {
-          "JobTitle": "aa",
-          "Salary": 111
-        },
-        "Age": 100,
-        "Sex": "F",
-        "Id": 1,
-        "FirstName": "aaa",
-        "LastName": "aaa",
-        "HairColor": "aaa",
-        "EyeColor": "aaa",
-        "Weight": 100,
-        "Height": 100
       }
     ],
     "Children": [
       {
-        "Interests": [
-          {
-            "Type": "a",
-            "Description": "123"
-          },
-          {
-            "Type": "aa",
-            "Description": "12312"
-          }
-        ],
-        "Pets": [
-          {
-            "Id": 0,
-            "Species": "a",
-            "Name": "a",
-            "Age": 1
-          }
-        ],
-        "Id": 1,
+        "Interests": [],
+        "Pets": [],
+        "Id": 2,
         "FirstName": "a",
         "LastName": "a",
         "HairColor": "a",
@@ -62,37 +31,10 @@
         "Age": 1,
         "Weight": 1,
         "Height": 1,
-        "Sex": "F"
-      },
-      {
-        "Interests": [],
-        "Pets": [
-          {
-            "Id": 0,
-            "Species": "dasdqa",
-            "Name": "wfwf",
-            "Age": 7
-          }
-        ],
-        "Id": 2,
-        "FirstName": "dasda",
-        "LastName": "asasd",
-        "HairColor": "dasda",
-        "EyeColor": "dasdas",
-        "Age": 2,
-        "Weight": 123,
-        "Height": 1231,
         "Sex": "M"
       }
     ],
-    "Pets": [
-      {
-        "Id": 1,
-        "Species": "ss",
-        "Name": "ss",
-        "Age": 1
-      }
-    ]
+    "Pets": []
   },
   {
     "StreetName": "Innovation Avenue",
