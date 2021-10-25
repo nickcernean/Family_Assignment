@@ -8,7 +8,9 @@ public class Adult : Person {
     
     [Range(18, int.MaxValue, ErrorMessage = "Have to be at least 18 years old to be adult")]
     public int Age { get; set; }
-    [ Required]
+    
     public string Sex { get; set; }
+
+    
 }
 }

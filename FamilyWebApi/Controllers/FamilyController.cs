@@ -35,13 +35,15 @@ namespace FamilyWebApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
         [HttpGet]
         [Route("{streetName}/{houseNumber:int}")]
-        public async Task<ActionResult<Family>> GetFamilyAsync(string streetName,int houseNumber)
-        {      Console.WriteLine("get family");
+        public async Task<ActionResult<Family>> GetFamilyAsync(string streetName, int houseNumber)
+        {
+            Console.WriteLine("get family");
             try
             {
-               Family family = await familyReader.GetFamilyAsync(streetName,houseNumber);
+                Family family = await familyReader.GetFamilyAsync(streetName, houseNumber);
                 string familiesAsJson = JsonSerializer.Serialize(family);
                 return Ok(familiesAsJson);
             }
@@ -51,13 +53,16 @@ namespace FamilyWebApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
         [HttpDelete]
         [Route("{streetName}/{houseNumber}")]
         public async Task<ActionResult> DeleteFamily([FromRoute] string streetName, int houseNumber)
         {
             try
             {
-                await familyReader.RemoveFamilyAsync(streetName,houseNumber);
+                Console.WriteLine("Delete method add family");
+
+                await familyReader.RemoveFamilyAsync(streetName, houseNumber);
                 return Ok();
             }
             catch (Exception e)
@@ -71,9 +76,9 @@ namespace FamilyWebApi.Controllers
         [Route("{newFamily}")]
         public async Task<ActionResult<Family>> AddFamily([FromBody] Family family)
         {
-            
             try
             {
+                Console.WriteLine("Post method add family");
                 Family familyAdded = await familyReader.AddFamilyAsync(family);
                 return Created($"/{familyAdded.StreetName} / {familyAdded.HouseNumber}", familyAdded);
             }
@@ -84,18 +89,17 @@ namespace FamilyWebApi.Controllers
             }
         }
 
-      [HttpPatch]
-       [Route("{streetName}/{streetNumber:int}")]
+        [HttpPatch]
+        [Route("{streetName}/{streetNumber:int}")]
         public async Task<ActionResult<Family>> UpdateFamily([FromBody] Family family)
-        {       Console.WriteLine("before try");
+        {
             try
-            {  
-                Console.WriteLine("before"+family.Adults[0].FirstName);
-                Console.WriteLine("before"+family.Adults[1].FirstName);
+            {
+                Console.WriteLine("updating family");
+
                 Family updatedFamily = await familyReader.UpdateFamilyAsync(family);
-                Console.WriteLine("after"+updatedFamily.Adults[0].FirstName);
-                Console.WriteLine("after"+updatedFamily.Adults[1].FirstName);
-                return Ok(updatedFamily);
+
+                return Ok();
             }
             catch (Exception e)
             {

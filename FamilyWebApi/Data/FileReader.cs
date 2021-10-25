@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Models;
 
@@ -10,6 +12,7 @@ namespace FamilyWebApi.Data
     {
         private FileContext FileContext;
         private IList<Family> families;
+        
 
         public FileReader()
         {
@@ -40,19 +43,13 @@ namespace FamilyWebApi.Data
 
         public async Task<Family> UpdateFamilyAsync(Family family)
         {
-            Console.WriteLine("UpdateFamilyAsync got" + family.Adults[0].FirstName);
-            Console.WriteLine("UpdateFamilyAsync got" + family.Adults[1].FirstName);
-            
+        
             Family familyToUpdate = families.FirstOrDefault(t =>
                 t.StreetName.Equals(family.StreetName) && t.HouseNumber == family.HouseNumber);
-            
-            Console.WriteLine("UpdateFamilyAsync familyToUpdate" + familyToUpdate.Adults[0].FirstName);
-            Console.WriteLine("UpdateFamilyAsync familyToUpdate" + familyToUpdate.Adults[1].FirstName);
+            int indexOf = families.IndexOf(familyToUpdate);
+            families.RemoveAt(indexOf);
             familyToUpdate = family;
-            Console.WriteLine("UpdateFamilyAsync familyToUpdate01" + familyToUpdate.Adults[0].FirstName);
-            Console.WriteLine("UpdateFamilyAsync familyToUpdate01" + familyToUpdate.Adults[1].FirstName);
-            
-            
+            families.Insert(indexOf, familyToUpdate);
             FileContext.SaveChanges();
             return familyToUpdate;
         }
@@ -62,5 +59,7 @@ namespace FamilyWebApi.Data
             return families.FirstOrDefault(family =>
                 family.StreetName.Equals(streetName) && family.HouseNumber.Equals(houseNumber));
         }
+
+        
     }
 }

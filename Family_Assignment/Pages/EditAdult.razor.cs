@@ -17,18 +17,24 @@ namespace Family_Assignment.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            familyToEdit = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
-            adultToEdit = familyToEdit.Adults.Find(t => t.Id == Id);
+            try
+            {
+                familyToEdit = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+                adultToEdit = familyToEdit.Adults.Find(t => t.Id == Id);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         private async Task Update()
         {
             Adult updateAdult = familyToEdit.Adults.Find(t => t.Id == adultToEdit.Id);
             updateAdult = adultToEdit;
-           HttpStatusCode reponse= await fileReader.UpdateFamilyAsync(familyToEdit);
+           await fileReader.UpdateFamilyAsync(familyToEdit);
            
-           Console.WriteLine(reponse == HttpStatusCode.OK);
-          Console.WriteLine(reponse == HttpStatusCode.InternalServerError);
+           
 
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }

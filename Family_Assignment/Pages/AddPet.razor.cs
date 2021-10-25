@@ -25,7 +25,7 @@ namespace Family_Assignment.Pages
         }
 
         private async Task AddNewPetToChild()
-        {
+        {//edit it 
             family.Children.Find(t => t.Id == IdOfChild).Pets.Add(petToAdd);
             await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{IdOfChild}");

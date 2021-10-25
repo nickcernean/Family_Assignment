@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Threading.Tasks;
-using Family_Assignment.Data;
 using Microsoft.AspNetCore.Components;
 using Models;
 
@@ -25,15 +25,25 @@ namespace Family_Assignment.Pages
 
         private async Task AddNewAdult()
         {
-            adultToAdd.JobTitle = adultsJob;
-            adultToAdd.Id = getNewId();
-            Family forUpdate = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
-            forUpdate.Adults.Add(adultToAdd);
-            await fileReader.UpdateFamilyAsync(forUpdate);
-            NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
+            try
+            {
+                adultToAdd.JobTitle = adultsJob;
+                adultToAdd.Id = GetNewId();
+                Family forUpdate = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+                forUpdate.Adults.Add(adultToAdd);
+                await fileReader.UpdateFamilyAsync(forUpdate);
+                Console.WriteLine("we get here");
+                NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
 
-        private int getNewId()
+        private int GetNewId()
         {
             int result = allAdults.Count + 1;
             int check = 1;
