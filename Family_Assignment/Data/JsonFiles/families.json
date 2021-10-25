@@ -5,8 +5,8 @@
     "Adults": [
       {
         "JobTitle": {
-          "JobTitle": "no tittle",
-          "Salary": 0
+          "JobTitle": "asd",
+          "Salary": 111
         },
         "Age": 58,
         "Sex": "M",
@@ -21,8 +21,24 @@
     ],
     "Children": [
       {
-        "Interests": [],
-        "Pets": [],
+        "Interests": [
+          {
+            "Type": "asd",
+            "Description": "asdasdasdasd"
+          },
+          {
+            "Type": "a",
+            "Description": "a"
+          }
+        ],
+        "Pets": [
+          {
+            "Id": 0,
+            "Species": "a",
+            "Name": "a",
+            "Age": 1
+          }
+        ],
         "Id": 2,
         "FirstName": "a",
         "LastName": "a",
@@ -34,7 +50,14 @@
         "Sex": "M"
       }
     ],
-    "Pets": []
+    "Pets": [
+      {
+        "Id": 1,
+        "Species": "aa",
+        "Name": "aa",
+        "Age": 11
+      }
+    ]
   },
   {
     "StreetName": "Innovation Avenue",
