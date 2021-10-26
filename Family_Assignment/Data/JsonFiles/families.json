@@ -40,13 +40,13 @@
           }
         ],
         "Id": 2,
-        "FirstName": "a",
-        "LastName": "a",
-        "HairColor": "a",
-        "EyeColor": "a",
-        "Age": 1,
-        "Weight": 1,
-        "Height": 1,
+        "FirstName": "Da Ba Dee",
+        "LastName": "Baxter",
+        "HairColor": "blue",
+        "EyeColor": "blue",
+        "Age": 23,
+        "Weight": 4,
+        "Height": 43,
         "Sex": "M"
       }
     ],

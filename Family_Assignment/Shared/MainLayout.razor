@@ -1,23 +1,16 @@
 @inherits LayoutComponentBase
 @using Family_Assignment.Authentication
+@using Family_Assignment.Pages
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 <AuthorizeView>
     <NotAuthorized >
         <div class="page">
-            <div class="sidebar">
-                <NavMenu/>
-            </div>
-
             <div class="main">
                 <div class="top-row px-0">
-                    @* <button id="buttons" class="btn btn-outline-dark" @onclick="NavigateToLogin"target="_blank">Sign in</button> *@
-                    @* <button id="buttons" class="btn btn-outline-dark" @onclick="NavigateToRegister" target="_blank">Sign up</button> *@
-                    @* <button id="buttons" class="btn btn-outline-dark" href="https://docs.microsoft.com/aspnet/" target="_blank">About</button> *@
+                    <Login_Register></Login_Register>
                 </div>
-                <div class="content px-0">
-                    @Body
-                </div>
+
             </div>
         </div>
     </NotAuthorized>
@@ -28,8 +21,7 @@
             </div>
             <div class="main">
                 <div class="top-row px-0">
-                    @* <button id="buttons" class="btn btn-outline-dark" @onclick="PerformLogout" target="_blank">Sign Out</button> *@
-                    @* <button id="buttons" class="btn btn-outline-dark" href="https://docs.microsoft.com/aspnet/" target="_blank">About</button> *@
+                     
                 </div>
                 <div class="content px-0">
                     @Body
