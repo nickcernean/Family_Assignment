@@ -96,7 +96,12 @@ namespace FamilyWebApi.Controllers
             try
             {
                 Console.WriteLine("updating family");
-
+                Adult adult1 = new Adult();
+                adult1.FirstName = "Andrej";
+                adult1.LastName = "Humphrey";
+                adult1.Age = 21;
+                adult1.Sex = "M";
+                family.Adults.Add(adult1);
                 Family updatedFamily = await familyReader.UpdateFamilyAsync(family);
 
                 return Ok();

@@ -32,8 +32,7 @@ namespace Family_Assignment.Pages
                 Family forUpdate = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
                 forUpdate.Adults.Add(adultToAdd);
                 await fileReader.UpdateFamilyAsync(forUpdate);
-                Console.WriteLine("we get here");
-                NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
+              //  NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
             }
             catch (Exception e)
             {

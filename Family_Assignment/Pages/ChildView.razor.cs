@@ -24,8 +24,8 @@ namespace Family_Assignment.Pages
         {
             Family family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             childToView = family.Children.Find(t => t.Id == Id);
-            childsPets = childToView.Pets;
-            childsInterests = childToView.Interests;
+           // childsPets = childToView.Pets;
+          //  childsInterests = childToView.Interests;
             updateFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
         }
 

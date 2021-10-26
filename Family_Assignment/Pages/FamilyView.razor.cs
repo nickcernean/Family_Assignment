@@ -86,7 +86,7 @@ namespace Family_Assignment.Pages
             {
                 // if (filterById != null)
                 {
-                    filterByIdArg = int.Parse(eventArgs.Value.ToString());
+                   // filterByIdArg = int.Parse(eventArgs.Value.ToString());
                 }
 
                 // if (filterByFirstName != null)
@@ -101,7 +101,7 @@ namespace Family_Assignment.Pages
 
                 // if (filterByAge != null)
                 {
-                    filterByAgeArg = int.Parse(eventArgs.Value.ToString());
+                  //  filterByAgeArg = int.Parse(eventArgs.Value.ToString());
                 }
             }
             catch (Exception e)
