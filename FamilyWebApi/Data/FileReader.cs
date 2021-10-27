@@ -51,6 +51,7 @@ namespace FamilyWebApi.Data
             familyToUpdate = family;
             families.Insert(indexOf, familyToUpdate);
             FileContext.SaveChanges();
+            Console.WriteLine("updated");
             return familyToUpdate;
         }
 

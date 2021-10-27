@@ -97,17 +97,12 @@ namespace FamilyWebApi.Controllers
             {
                 Console.WriteLine("updating family");
                 Adult adult1 = new Adult();
-                adult1.FirstName = "Andrej";
-                adult1.LastName = "Humphrey";
-                adult1.Age = 21;
-                adult1.Sex = "M";
-                family.Adults.Add(adult1);
                 Family updatedFamily = await familyReader.UpdateFamilyAsync(family);
-
                 return Ok();
             }
             catch (Exception e)
             {
+                Console.WriteLine("catch");
                 Console.WriteLine(e);
                 return StatusCode(500, e.Message);
             }
