@@ -25,21 +25,13 @@ namespace Family_Assignment.Pages
 
         private async Task AddNewAdult()
         {
-            try
-            {
-                adultToAdd.JobTitle = adultsJob;
+             adultToAdd.JobTitle = adultsJob;
                 adultToAdd.Id = GetNewId();
                 Family forUpdate = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
                 forUpdate.Adults.Add(adultToAdd);
                 await fileReader.UpdateFamilyAsync(forUpdate);
-              //  NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            
+                NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
+                
         }
 
         private int GetNewId()
