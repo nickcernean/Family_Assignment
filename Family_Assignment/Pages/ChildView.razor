@@ -1,124 +1,234 @@
 ﻿@page "/ChildView/{StreetName}/{HouseNumber:int}/{Id:int}"
 @using Family_Assignment.Data
+@using Models
 @inject IFamilyReader fileReader
 @inject NavigationManager NavMgr
-<h3>Child</h3>
 
-<div class="card-body pt-0">
-    <table class="table table-bordered">
-        <tr>
-            <th width="30%">ID</th>
-            <td width="2%">:</td>
-            <td>@childToView.Id</td>
-        </tr>
-        <tr>
-            <th width="30%">First name</th>
-            <td width="2%">:</td>
-            <td>@childToView.FirstName</td>
-        </tr>
-        <tr>
-            <th width="30%">Last name</th>
-            <td width="2%">:</td>
-            <td>@childToView.LastName</td>
-        </tr>
-        <tr>
-            <th width="30%">Hair color</th>
-            <td width="2%">:</td>
-            <td>@childToView.HairColor</td>
-        </tr>
-        <tr>
-            <th width="30%">Eye color</th>
-            <td width="2%">:</td>
-            <td>@childToView.EyeColor</td>
-        </tr>
-        <tr>
-            <th width="30%">Age</th>
-            <td width="2%">:</td>
-            <td>@childToView.Age</td>
-        </tr>
-        <tr>
-            <th width="30%">Weight</th>
-            <td width="2%">:</td>
-            <td>@childToView.Weight</td>
-        </tr>
-        <tr>
-            <th width="30%">Height</th>
-            <td width="2%">:</td>
-            <td>@childToView.Height</td>
-        </tr>
-        <tr>
-            <th width="30%">Gender</th>
-            <td width="2%">:</td>
-            <td>@childToView.Sex</td>
-        </tr>
-    </table>
+<div class="bg-green-100 py-20 min-h-screen px-0">
+<!--   tip; mx-auto -- jagab ilusti keskele  -->
+<div class="bg-white md:w-3/4 lg:w-1/4 mx-auto flex items-center justify-center shadow-xl">
+
+
+    <div class="bg-white rounded my-6">
+        <div class="flex items-center justify-center py-3 text-xl font-black">
+            <h3 class="text-green-700">Child</h3>
+        </div>
+        <div class="bg-gradient-to-l from-blue-100 to-green-100 flex items-center justify-center py-3 text-xl border-4 border-gray-500 shadow-xl">
+            <svg class="h-20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+        </div>
+        <div class="flex items-center justify-center py-1 text-m ">
+            <p class="text-gray-500">&#64 @childToView.FirstName @childToView.LastName</p>
+        </div>
+        <div class="flex items-center justify-center py-1 text-m ">
+            <p class="text-black font-black px-2">Id: </p>
+            <p class="px-2">@childToView.Id</p>
+        </div>
+        <div class="flex items-center justify-center py-1 text-m ">
+            <p class="text-black font-black px-2">HairColor: </p>
+            <p class="px-2">@childToView.HairColor</p>
+        </div>
+        <div class="flex items-center justify-center py-1 text-m ">
+            <p class="text-black font-black px-2">EyeColor: </p>
+            <p class="px-2">@childToView.EyeColor</p>
+        </div>
+        <div class="flex items-center justify-center py-1 text-m ">
+            <p class="text-black font-black px-2">Age: </p>
+            <p class="px-2">@childToView.Age</p>
+        </div>
+        <div class="flex items-center justify-center py-1 text-m ">
+            <p class="text-black font-black px-2">Weight: </p>
+            <p class="px-2">@childToView.Weight</p>
+        </div>
+        <div class="flex items-center justify-center py-1 text-m ">
+            <p class="text-black font-black px-2">Height: </p>
+            <p class="px-2">@childToView.Height</p>
+        </div>
+        <div class="flex items-center justify-center py-1 text-m ">
+            <p class="text-black font-black px-2">Gender: </p>
+            <p class="px-2">@childToView.Sex</p>
+        </div>
+
+    </div>
+</div>
+<div class=" bg-white md:w-3/4 lg:w-1/4 mx-auto flex items-center justify-center shadow-xl">
+
+
+    <div class="bg-white rounded my-6">
+        <div class="flex items-center justify-center py-3 text-xl font-black">
+            <h3 class="px-2 text-green-700">Interests</h3>
+            <a class="px-2" @onclick="() => NavigateToAddInterest()">
+                <button
+                    class="p-0 w-12 h-12 bg-green-600 rounded-full hover:bg-green-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
+
+                    <svg viewBox="0 0 20 20" enable-background="new 0 0 20 20" class="w-6 h-6 inline-block">
+                        <path fill="#FFFFFF" d="M16,10c0,0.553-0.048,1-0.601,1H11v4.399C11,15.951,10.553,16,10,16c-0.553,0-1-0.049-1-0.601V11H4.601
+                                                                                                                                                                                C4.049,11,4,10.553,4,10c0-0.553,0.049-1,0.601-1H9V4.601C9,4.048,9.447,4,10,4c0.553,0,1,0.048,1,0.601V9h4.399
+                                                                                                                                                                                C15.952,9,16,9.447,16,10z"/>
+                    </svg>
+
+                </button>
+            </a>
+        </div>
+
+
+        <table class="min-w-max w-full table-auto shadow-xl">
+            <thead>
+            <tr class="bg-gradient-to-l from-blue-100 to-green-100 text-gray-800 uppercase text-sm leading-normal">
+                <th class="py-3 px-6 text-left ">
+
+                    <div class="flex items-center justify-center">
+                        Type
+                    </div>
+                </th>
+                <th class="py-3 px-6 text-left ">
+                    <div class="flex items-center justify-center">
+                        Description
+                    </div>
+                </th>
+                <th class="py-3 px-6 text-left ">
+                    <div class="flex items-center justify-center">
+                        Action
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <tbody class="text-gray-700 text-sm font-light">
+            @foreach (Interest item in childsInterests)
+            {
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center justify-center">
+                            <span class="font-medium">@item.Type</span>
+                        </div>
+                    </td>
+                    <td class="py-3 px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center justify-center">
+                            <span class="font-medium">@item.Description</span>
+                        </div>
+                    </td>
+                    <td class="py-3 px-6 text-center">
+                        <div class="flex item-center justify-center">
+                            <a @onclick="() => DeleteInterests(item)">
+                                <div class="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                    </svg>
+
+                                </div>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+
+    </div>
 </div>
 
-@if (childToView.Pets.Count == 0)
-{
-    <h3>No Pets</h3>
-    <a class="btn btn-success mb-2" @onclick="() => NavigateToAddPet()">Add Pet</a>
-}
-else
-{
-    <h3>Pets</h3>
-    <a class="btn btn-success mb-2" @onclick="() => NavigateToAddPet()">Add Pet</a>
-    <table class="table">
-        <thead class="table-primary">
-        <tr>
-            <th>Id</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Age</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in childsPets)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Species</td>
-                <td>@item.Name</td>
-                <td>@item.Age</td>
-                <td>
-                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
-                    <a class="btn btn-danger" @onclick="() => DeletePet(item.Id)">Delete</a>
-                </td>
+<div class=" bg-white md:w-3/4 lg:w-1/4 mx-auto flex items-center justify-center shadow-xl">
+
+
+    <div class="bg-white rounded my-6">
+        <div class="flex items-center justify-center py-3 text-xl font-black">
+            <h3 class="px-2 text-green-700">Pets</h3>
+            <a class="px-2" @onclick="() => NavigateToAddPet()">
+                <button
+                    class="p-0 w-12 h-12 bg-green-600 rounded-full hover:bg-green-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
+
+                    <svg viewBox="0 0 20 20" enable-background="new 0 0 20 20" class="w-6 h-6 inline-block">
+                        <path fill="#FFFFFF" d="M16,10c0,0.553-0.048,1-0.601,1H11v4.399C11,15.951,10.553,16,10,16c-0.553,0-1-0.049-1-0.601V11H4.601
+                                                                                                                                                                                        C4.049,11,4,10.553,4,10c0-0.553,0.049-1,0.601-1H9V4.601C9,4.048,9.447,4,10,4c0.553,0,1,0.048,1,0.601V9h4.399
+                                                                                                                                                                                        C15.952,9,16,9.447,16,10z"/>
+                    </svg>
+
+                </button>
+            </a>
+        </div>
+
+
+        <table class="min-w-max w-full table-auto shadow-xl">
+            <thead>
+            <tr class="bg-gradient-to-l from-blue-100 to-green-100 text-gray-800 uppercase text-sm leading-normal">
+                <th class="py-3 px-6 text-left ">
+                    <div class="flex items-center justify-center">
+                        Id
+                    </div>
+                </th>
+                
+                <th class="py-3 px-6 text-left ">
+                    <div class="flex items-center justify-center">
+                        Species
+                    </div>
+                </th>
+                <th class="py-3 px-6 text-left ">
+                    <div class="flex items-center justify-center">
+                        Name
+                    </div>
+                </th>
+                <th class="py-3 px-6 text-left ">
+                    <div class="flex items-center justify-center">
+                        Age
+                    </div>
+                </th>
+                <th class="py-3 px-6 text-left ">
+                    <div class="flex items-center justify-center">
+                        Action
+                    </div>
+                </th>
             </tr>
-        }
-        </tbody>
-    </table>
-}
-@if (childToView.Interests.Count == 0)
-{
-    <h3>No Interests</h3>
-    <a class="btn btn-success mb-2" @onclick="() => NavigateToAddInterest()">Add Interest</a>
-}
-else
-{
-    <h3>Interests</h3>
-    <a class="btn btn-success mb-2" @onclick="() => NavigateToAddInterest()">Add Interest</a>
-    <table class="table">
-        <thead class="table-primary">
-        <tr>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in childsInterests)
-        {
-            <tr>
-                <td>@item.Type</td>
-                <td>@item.Description</td>
-                <td>
-                    @* <a class="btn btn-warning" @onclick="() => NavigateToAdultView(item.Id)">Edit</a> *@
-                    <a class="btn btn-danger" @onclick="() => DeleteInterests(item)">Delete</a>
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
-}
+            </thead>
+            <tbody class="text-gray-700 text-sm font-light">
+            @foreach (Pet item in childsPets)
+            {
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center justify-center">
+                            <span class="font-medium">@item.Id</span>
+                        </div>
+                    </td>
+                    <td class="py-3 px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center justify-center">
+                            <span class="font-medium">@item.Species</span>
+                        </div>
+                    </td>
+                    <td class="py-3 px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center justify-center">
+                            <span class="font-medium">@item.Name</span>
+                        </div>
+                    </td>
+                    <td class="py-3 px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center justify-center">
+                            <span class="font-medium">@item.Age</span>
+                        </div>
+                    </td>
+
+                    <td class="py-3 px-6 text-center">
+                        <div class="flex item-center justify-center">
+                            <a @onclick="() => DeletePet(item.Id)">
+                                <div class="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                    </svg>
+
+                                </div>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+</div>

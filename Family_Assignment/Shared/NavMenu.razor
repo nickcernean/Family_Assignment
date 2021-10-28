@@ -1,29 +1,29 @@
-﻿@using Family_Assignment.Pages
-<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Family_Assignment</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
+﻿@using Family_Assignment.Authentication
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="FamilyList">
-                <span class="oi oi-list" aria-hidden="true"></span> FamilyList
-            </NavLink>
-        </li>
-        
-       
+
+  <nav class="bg-gradient-to-r from-blue-500 to-green-800 flex items-center justify-between p-6 h-20 bg-white shadow-sm">
+    <div class="py-5 px-3 rounded-full bg-gradient-to-r from-green-500 to-blue-800 text-sm text-white font-semibold shadow-xl hover:cursor-pointer hover:shadow-lg">Family</div>
+    <ul>
+      <li class="space-x-5 text-xl">
+        <a href="/" class="hidden sm:inline-block text-white hover:text-blue-300">Home</a>
+        <a href="/FamilyList" class="hidden sm:inline-block text-white hover:text-blue-300">List</a>
+        <button id="buttons" class="hidden sm:inline-block text-white hover:text-blue-300" @onclick="PerformLogout" target="_blank">SignOut</button>
+      </li>
+      <div class="sm:hidden space-y-1 hover:cursor-pointer">
+        <span class="w-10 h-1 bg-gray-600 rounded-full block"></span>
+        <span class="w-10 h-1 bg-gray-600 rounded-full block"></span>
+        <span class="w-10 h-1 bg-gray-600 rounded-full block"></span>
+      </div>
     </ul>
-</div>
+  </nav>
+
 
 @code {
+  [CascadingParameter]
+  protected Task<AuthenticationState> AuthStat { get; set; }
+  
     private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -32,5 +32,10 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+  public async Task PerformLogout()
+  {
+    ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+    NavigationManager.NavigateTo("/");
+  }
 
 }
