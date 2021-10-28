@@ -15,36 +15,47 @@ namespace Family_Assignment.Pages
 
         private Pet petToAdd;
         private Family family;
-        private IList<Pet> listOfPets;
-
+        private IList<Pet> listOfPetsFamily;
+        private IList<Pet> listOfPetsChild;
         protected override async Task OnInitializedAsync()
         {
             petToAdd = new Pet();
-            family = fileReader.GetFamily(StreetName, HouseNumber);
-            listOfPets = family.Pets;
+            family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+            listOfPetsFamily = family.Pets;
+            listOfPetsChild = family.Children.Find(t => t.Id == IdOfChild).Pets;
         }
 
-        private void AddNewPetToChild()
-        {
+        private async Task AddNewPetToChild()
+        {//edit it 
+            petToAdd.Id = GetNewId();
             family.Children.Find(t => t.Id == IdOfChild).Pets.Add(petToAdd);
-            fileReader.UpdateFamily(family);
+            await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{IdOfChild}");
         }
 
-        private void AddNewPetToFamily()
+        private async Task AddNewPetToFamily()
         {
-            petToAdd.Id = getNewId();
-            family = fileReader.GetFamily(StreetName, HouseNumber);
+            petToAdd.Id = GetNewId();
+            family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             family.Pets.Add(petToAdd);
-            fileReader.UpdateFamily(family);
+            await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
 
-        private int getNewId()
+        private int GetNewId()
         {
-            int result = listOfPets.Count + 1;
+            IList<Pet> list;
+            if (IdOfChild == 0)
+            {
+                list = listOfPetsFamily;
+            }
+            else
+            {
+                list = listOfPetsChild;
+            }
+            int result = list.Count + 1;
             int check = 1;
-            foreach (Pet x in listOfPets)
+            foreach (Pet x in list)
             {
                 if (check == x.Id)
                 {

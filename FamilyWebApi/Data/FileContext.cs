@@ -3,7 +3,7 @@ using System.IO;
 using System.Text.Json;
 using Models;
 
-namespace Family_Assignment.Data
+namespace FamilyWebApi.Data
 {
     public class FileContext
     {
@@ -45,9 +45,9 @@ namespace Family_Assignment.Data
             {
                 WriteIndented = true
             });
-            using (StreamWriter outputFile = new StreamWriter(usersFile, false))
+            using (StreamWriter outputFile1 = new StreamWriter(usersFile, false))
             {
-                outputFile.Write(jsonUsers);
+                outputFile1.Write(jsonUsers);
             }
             
         }

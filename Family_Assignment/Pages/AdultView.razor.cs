@@ -4,37 +4,38 @@ using Models;
 
 namespace Family_Assignment.Pages
 {
-    public partial class AdultView:ComponentBase
+    public partial class AdultView : ComponentBase
     {
-        [Parameter]
-        public int Id { set; get; }
+        [Parameter] public int Id { set; get; }
         [Parameter] public string StreetName { get; set; }
         [Parameter] public int HouseNumber { get; set; }
 
         private Adult adultToView;
         private Job jobToView;
         private Job newJob;
-        
+        private Family family;
+
         protected override async Task OnInitializedAsync()
         {
-            adultToView = fileReader.GetFamily(StreetName,HouseNumber).Adults.Find(t => t.Id == Id);
+            family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+            adultToView = family.Adults.Find(t => t.Id == Id);
             newJob = new Job();
             jobToView = adultToView.JobTitle;
         }
 
-        public void AddJob()
+        public async Task AddJob()
         {
             jobToView = newJob;
-            Family theFamily = fileReader.GetFamily(StreetName, HouseNumber);
+            Family theFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             theFamily.Adults.Find(t => t.Id == Id).JobTitle = newJob;
-            fileReader.UpdateFamily(theFamily);
+            await fileReader.UpdateFamilyAsync(theFamily);
         }
-        
-        public void DeleteJob()
+
+        public async Task DeleteJob()
         {
-            Family theFamily = fileReader.GetFamily(StreetName, HouseNumber);
+            Family theFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             theFamily.Adults.Find(t => t.Id == Id).JobTitle = new Job();
-            fileReader.UpdateFamily(theFamily);
+            await fileReader.UpdateFamilyAsync(theFamily);
         }
     }
 }

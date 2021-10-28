@@ -3,8 +3,13 @@
 @inject IFamilyReader fileReader
 @inject NavigationManager NavMgr
 
-
- <EditForm Model="@interestToAdd">
+@if (interestToAdd == null)
+{
+    <p>no families found</p>
+}
+else
+{
+    <EditForm Model="@interestToAdd">
         <div class="bg-green-100 py-32 min-h-screen px-0">
             <!--   tip; mx-auto -- jagab ilusti keskele  -->
             <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto shadow-xl">
@@ -14,7 +19,7 @@
                     <h3 class="inline-block w-40 text-right 
                                                                          font-bold text-green-700">AddInterest</h3>
                 </div>
-                
+
                 <div class="flex items-center mb-5">
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="name" class="inline-block w-20 mr-6 text-right 
@@ -42,4 +47,4 @@
             </div>
         </div>
     </EditForm>
-
+}

@@ -4,23 +4,29 @@
 @inject NavigationManager NavMgr
 @* <h3>AddChildren</h3> *@
 
-<EditForm Model="@childToAdd" OnValidSubmit="@AddNewChild">
-    <div class="bg-green-100 py-32 min-h-screen px-0">
-        <!--   tip; mx-auto -- jagab ilusti keskele  -->
-        <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto shadow-xl">
-            
-            <div class="flex items-center justify-center">
-                             
-                             <h3 class="inline-block w-40 text-right 
-                                                                 font-bold text-green-700">AddChildren</h3> 
-                          </div>
+@if (childToAdd == null)
+{
+    <p>no families found</p>
+}
+else
+{
+    <EditForm Model="@childToAdd" OnValidSubmit="@AddNewChild">
+        <div class="bg-green-100 py-32 min-h-screen px-0">
+            <!--   tip; mx-auto -- jagab ilusti keskele  -->
+            <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto shadow-xl">
 
-            <!--       flex - asjad korvuti, nb! flex-1 - element kogu ylejaanud laius -->
+                <div class="flex items-center justify-center">
+
+                    <h3 class="inline-block w-40 text-right 
+                                                                 font-bold text-green-700">AddChildren</h3>
+                </div>
+
+                <!--       flex - asjad korvuti, nb! flex-1 - element kogu ylejaanud laius -->
                 <div class="flex items-center mb-5">
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="name" class="inline-block w-20 mr-6 text-right 
                                  font-bold text-gray-600">First name</label>
-                    <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                    <br/> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
                                                                        text-gray-600 placeholder-gray-400
                                                                        outline-none" @bind-Value="childToAdd.FirstName"/>
                 </div>
@@ -28,7 +34,7 @@
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="name" class="inline-block w-20 mr-6 text-right 
                                        font-bold text-gray-600">Last name</label>
-                    <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                    <br/> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
                                                                              text-gray-600 placeholder-gray-400
                                                                              outline-none" @bind-Value="childToAdd.LastName"/>
                 </div>
@@ -36,7 +42,7 @@
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="name" class="inline-block w-20 mr-6 text-right
                                         font-bold text-gray-600">Hair color</label>
-                    <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                    <br/> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                               text-gray-600 placeholder-gray-400
                                                                               outline-none" @bind-Value="childToAdd.HairColor"/>
                 </div>
@@ -44,7 +50,7 @@
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="name" class="inline-block w-20 mr-6 text-right
                                         font-bold text-gray-600">Eye color</label>
-                    <br /> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                    <br/> <InputText class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                               text-gray-600 placeholder-gray-400
                                                                               outline-none" @bind-Value="childToAdd.EyeColor"/>
                 </div>
@@ -55,7 +61,7 @@
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="number" class="inline-block w-20 mr-6 text-right
                                          font-bold text-gray-600">Age</label>
-                    <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                    <br/> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                 text-gray-600 placeholder-gray-400
                                                                 outline-none" @bind-Value="childToAdd.Age"/>
                 </div>
@@ -63,7 +69,7 @@
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="number" class="inline-block w-20 mr-6 text-right
                                                font-bold text-gray-600">Weight</label>
-                    <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                    <br/> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                       text-gray-600 placeholder-gray-400
                                                                       outline-none" @bind-Value="childToAdd.Weight"/>
                 </div>
@@ -71,7 +77,7 @@
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="number" class="inline-block w-20 mr-6 text-right
                                                font-bold text-gray-600">Height</label>
-                    <br /> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
+                    <br/> <InputNumber class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400
                                                                       text-gray-600 placeholder-gray-400
                                                                       outline-none" @bind-Value="childToAdd.Height"/>
                 </div>
@@ -93,7 +99,8 @@
                     <DataAnnotationsValidator/> <ValidationSummary/>
                     <button class="py-3 px-8 bg-green-400 text-white font-bold" @onclick="@AddNewChild">Submit</button>
                 </div>
-                
+
+            </div>
         </div>
-    </div>
-</EditForm>
+    </EditForm>
+}

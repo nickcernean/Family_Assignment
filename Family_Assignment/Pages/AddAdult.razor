@@ -4,7 +4,11 @@
 @inject NavigationManager NavMgr
 
 
-
+@if (adultToAdd == null)
+{
+    <p>no adult found</p>
+}
+else{
 <EditForm Model="@adultToAdd" OnValidSubmit="@AddNewAdult">
     <div class="bg-green-100 py-32 min-h-screen px-0">
         <!--   tip; mx-auto -- jagab ilusti keskele  -->
@@ -95,7 +99,8 @@
                 <button class="py-3 px-8 bg-green-400 text-white font-bold" @onclick="@AddNewAdult">Submit</button>
             </div>
 
-    
+        <p class="actions"> <button class="btn btn-outline-dark" type="submit">Create</button> </p>
         </div>
-    </div>
+        </div>
 </EditForm>
+}

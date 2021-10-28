@@ -1,30 +1,41 @@
+using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Models;
 
 namespace Family_Assignment.Pages
 {
-    public partial class EditAdult:ComponentBase
+    public partial class EditAdult : ComponentBase
     {
-        [Parameter]
-        public int Id { set; get; }
+        [Parameter] public int Id { set; get; }
         [Parameter] public string StreetName { get; set; }
         [Parameter] public int HouseNumber { get; set; }
-        
+
         private Adult adultToEdit;
         private Family familyToEdit;
-        
+
         protected override async Task OnInitializedAsync()
         {
-            familyToEdit = fileReader.GetFamily(StreetName, HouseNumber);
-            adultToEdit = familyToEdit.Adults.Find(t => t.Id == Id);
+            try
+            {
+                familyToEdit = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
+                adultToEdit = familyToEdit.Adults.Find(t => t.Id == Id);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
-        private void Update()
+        private async Task Update()
         {
-            Adult update = familyToEdit.Adults.Find(t => t.Id == Id);
-            update = adultToEdit;
-            fileReader.UpdateFamily(familyToEdit);
+            Adult updateAdult = familyToEdit.Adults.Find(t => t.Id == adultToEdit.Id);
+            updateAdult = adultToEdit;
+           await fileReader.UpdateFamilyAsync(familyToEdit);
+           
+           
+
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
     }

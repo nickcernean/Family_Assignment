@@ -14,7 +14,6 @@ namespace Models
 
         public Family()
         {
-            Adults = new List<Adult>();
         }
     }
 }

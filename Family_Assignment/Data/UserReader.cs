@@ -1,53 +1,74 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Reflection.Metadata;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using Models;
-
+using Newtonsoft.Json;
 namespace Family_Assignment.Data
 {
     public class UserReader : IUserReader
     {
-        private FileContext FileContext;
-        private IList<User> users;
+        private string uri = "https://localhost:5003";
+        private readonly HttpClient client;
+        private HttpClientHandler clientHandler;
+
 
         public UserReader()
         {
-            FileContext = new FileContext();
-            users = FileContext.Users;
-        }
-        
-
-        public User ValidateUser(string userName, string password)
-        {
-            User checkUser = users.FirstOrDefault(user => user.UserName.Equals(userName));
-
-            if (checkUser == null)
+            clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
             {
-                throw new Exception("User not found");
-            }
-
-            if (!checkUser.Password.Equals(password))
-            {
-                throw new Exception("Wrong password");
-            }
-
-            return checkUser;
+                return true;
+            };
+            client = new HttpClient(clientHandler);
         }
 
-        public User RegisterUser(string userName, string password)
-        {
-            User checkUser = users.FirstOrDefault(user => user.UserName.Equals(userName));
 
-            if (checkUser != null)
+        public async Task<User> ValidateUser(string userName, string password)
+        {
+            HttpResponseMessage responseMessage =
+                await client.GetAsync(uri + $"/User/{userName}");
+            string replyMessage = await responseMessage.Content.ReadAsStringAsync();
+
+            if (responseMessage.StatusCode == HttpStatusCode.NotFound)
             {
-                throw new Exception("User already exist !");
+                throw new Exception(replyMessage);
+            }
+            //Throwing an exception
+          //  User user = JsonSerializer.Deserialize<User>(replyMessage);
+          User user = JsonConvert.DeserializeObject<User>(replyMessage);
+                
+            if (!user.Password.Equals(password))
+            {
+                throw new Exception("Incorrect password !");
             }
 
+            
+            return user;
+        }
+
+        public async Task<User> RegisterUser(string userName, string password)
+        {
             User user = new User();
             user.UserName = userName;
             user.Password = password;
-            users.Add(user);
-            FileContext.SaveChanges();
+
+            string serializedUser = JsonConvert.SerializeObject(user);
+            StringContent content = new StringContent(serializedUser, Encoding.UTF8, "application/json");
+            HttpResponseMessage responseMessage = await client.PostAsync(uri + "/User/newUser", content);
+            String reply = await responseMessage.Content.ReadAsStringAsync();
+           if (responseMessage.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                Console.WriteLine(reply);
+                throw new Exception(reply);
+            }
+
             return user;
         }
     }

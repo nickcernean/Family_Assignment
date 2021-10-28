@@ -24,7 +24,7 @@ namespace Family_Assignment.Authentication
         }
 
 
-        public void ValidateLogin(string username, string password)
+        public async Task ValidateLogin(string username, string password)
         {
             Console.WriteLine("Validating log in");
             if (string.IsNullOrEmpty(username)) throw new Exception("Enter username");
@@ -33,10 +33,12 @@ namespace Family_Assignment.Authentication
             ClaimsIdentity identity = new ClaimsIdentity();
             try
             {
-                User user = userReader.ValidateUser(username, password);
+                User user = await userReader.ValidateUser(username, password);
+                Console.WriteLine("custom" + user.ToString());
+
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
-                jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
+                await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
             }
             catch (Exception e)
@@ -48,7 +50,7 @@ namespace Family_Assignment.Authentication
                 Task.FromResult(new AuthenticationState(new ClaimsPrincipal(identity))));
         }
 
-        public void ValidateRegister(string userName, string password)
+        public async Task ValidateRegister(string userName, string password)
         {
             Console.WriteLine("Validating sign up");
             ClaimsIdentity identity = new ClaimsIdentity();
@@ -57,16 +59,17 @@ namespace Family_Assignment.Authentication
             {
                 Username checkedUsername = new Username(userName);
                 Password checkedPassword = new Password(password);
-                User user = userReader.RegisterUser(checkedUsername.GetName(), checkedPassword.GetPassword());
+                User user = await userReader.RegisterUser(checkedUsername.GetName(), checkedPassword.GetPassword());
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
-                jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
+                await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
             }
             catch (Exception e)
             {
                 throw e;
             }
+
             NotifyAuthenticationStateChanged(
                 Task.FromResult(new AuthenticationState(new ClaimsPrincipal(identity))));
         }
@@ -97,8 +100,8 @@ namespace Family_Assignment.Authentication
                 string userAsJson = await jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "currentUser");
                 if (!string.IsNullOrEmpty(userAsJson))
                 {
-                    User tmp = JsonSerializer.Deserialize<User>(userAsJson);
-                    ValidateLogin(tmp.UserName, tmp.Password);
+                    cachedUser = JsonSerializer.Deserialize<User>(userAsJson);
+                    identity = SetupClaimsForUser(cachedUser);
                 }
             }
             else

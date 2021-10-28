@@ -30,7 +30,7 @@ namespace Family_Assignment
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<IFamilyReader, FileReader>();
+            services.AddSingleton<IFamilyReader, FamilyReader>();
             services.AddScoped<IUserReader, UserReader>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddAuthorization(options =>
