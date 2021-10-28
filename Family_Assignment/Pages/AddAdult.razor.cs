@@ -18,7 +18,7 @@ namespace Family_Assignment.Pages
         protected override async Task OnInitializedAsync()
         {
             adultToAdd = new Adult();
-            adultsJob = new Job {JobTitle = "no job", Salary = 0};
+            adultsJob = new Job {JobTitle = "no tittle", Salary = 0};
             Family family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             allAdults = family.Adults;
         }
