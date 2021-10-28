@@ -27,7 +27,6 @@ namespace Family_Assignment.Data
             List<Family> families = new List<Family>();
             HttpResponseMessage responseMessage = await client.GetAsync(uri + "/Family");
             String reply = await responseMessage.Content.ReadAsStringAsync();
-
             families = JsonConvert.DeserializeObject<List<Family>>(reply);
             return families;
         }
