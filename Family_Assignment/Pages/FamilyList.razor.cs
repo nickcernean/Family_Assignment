@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Models;
+using Newtonsoft.Json;
 
 namespace Family_Assignment.Pages
 {
@@ -14,6 +15,7 @@ namespace Family_Assignment.Pages
 
         protected override async Task OnInitializedAsync()
         {
+            
             allFamilies = await fileReader.GetAllFamiliesAsync();
             toShowFamilies = allFamilies;
         }

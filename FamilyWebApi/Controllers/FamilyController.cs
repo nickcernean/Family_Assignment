@@ -98,6 +98,7 @@ namespace FamilyWebApi.Controllers
                 Console.WriteLine("updating family");
                 Adult adult1 = new Adult();
                 Family updatedFamily = await familyReader.UpdateFamilyAsync(family);
+
                 return Ok();
             }
             catch (Exception e)

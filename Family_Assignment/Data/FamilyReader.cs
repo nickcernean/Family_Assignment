@@ -27,7 +27,6 @@ namespace Family_Assignment.Data
             List<Family> families = new List<Family>();
             HttpResponseMessage responseMessage = await client.GetAsync(uri + "/Family");
             String reply = await responseMessage.Content.ReadAsStringAsync();
-
             families = JsonConvert.DeserializeObject<List<Family>>(reply);
             return families;
         }
@@ -51,6 +50,9 @@ namespace Family_Assignment.Data
                 string serializedFamily = JsonConvert.SerializeObject(family);
                 StringContent content = new StringContent(serializedFamily, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PatchAsync($"{uri}/Family/{family.StreetName}/{family.HouseNumber}", content);
+                Console.WriteLine(response.StatusCode);
+                Console.WriteLine(await response.Content.ReadAsStringAsync());
+
                 int tophere = 0;
                 Console.WriteLine("updating family...");
             }

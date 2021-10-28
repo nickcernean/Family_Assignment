@@ -19,11 +19,38 @@
         "Height": 147
       },
       {
+        "JobTitle": {
+          "JobTitle": "Front End Web Developer",
+          "Salary": 66408
+        },
+        "Age": 44,
+        "Sex": "F",
+        "Id": 4,
+        "FirstName": "Alex",
+        "LastName": "Humphrey",
+        "HairColor": "Black",
+        "EyeColor": "Brown",
+        "Weight": 64.8,
+        "Height": 147
+      },
+      {
         "JobTitle": null,
         "Age": 21,
         "Sex": "M",
         "Id": 0,
-        "FirstName": "Andrej",
+        "FirstName": "Hello",
+        "LastName": "Humphrey",
+        "HairColor": null,
+        "EyeColor": null,
+        "Weight": 0,
+        "Height": 0
+      },
+      {
+        "JobTitle": null,
+        "Age": 21,
+        "Sex": "M",
+        "Id": 0,
+        "FirstName": "Hello",
         "LastName": "Humphrey",
         "HairColor": null,
         "EyeColor": null,
@@ -48,53 +75,14 @@
       {
         "Interests": [],
         "Pets": [],
-        "Id": 2,
-        "FirstName": "sadasdc",
-        "LastName": "dasdas",
-        "HairColor": null,
-        "EyeColor": null,
-        "Age": 4,
-        "Weight": 0,
-        "Height": 0,
-        "Sex": "M"
-      },
-      {
-        "Interests": [],
-        "Pets": [],
-        "Id": 3,
-        "FirstName": "hello1",
+        "Id": 4,
+        "FirstName": "asdas",
         "LastName": "dasda",
         "HairColor": null,
         "EyeColor": null,
         "Age": 2,
         "Weight": 0,
         "Height": 0,
-        "Sex": "F"
-      },
-      {
-        "Interests": [],
-        "Pets": [],
-        "Id": 4,
-        "FirstName": "a",
-        "LastName": "a",
-        "HairColor": "a",
-        "EyeColor": "a",
-        "Age": 11,
-        "Weight": 0,
-        "Height": 0,
-        "Sex": "M"
-      },
-      {
-        "Interests": [],
-        "Pets": [],
-        "Id": 5,
-        "FirstName": "a",
-        "LastName": "a",
-        "HairColor": "a",
-        "EyeColor": "a",
-        "Age": 11,
-        "Weight": 1,
-        "Height": 1,
         "Sex": "M"
       }
     ],
