@@ -15,17 +15,19 @@ namespace Family_Assignment.Pages
 
         private Pet petToAdd;
         private Family family;
-        private IList<Pet> listOfPets;
-
+        private IList<Pet> listOfPetsFamily;
+        private IList<Pet> listOfPetsChild;
         protected override async Task OnInitializedAsync()
         {
             petToAdd = new Pet();
             family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
-            listOfPets = family.Pets;
+            listOfPetsFamily = family.Pets;
+            listOfPetsChild = family.Children.Find(t => t.Id == IdOfChild).Pets;
         }
 
         private async Task AddNewPetToChild()
         {//edit it 
+            petToAdd.Id = GetNewId();
             family.Children.Find(t => t.Id == IdOfChild).Pets.Add(petToAdd);
             await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{IdOfChild}");
@@ -42,9 +44,18 @@ namespace Family_Assignment.Pages
 
         private int GetNewId()
         {
-            int result = listOfPets.Count + 1;
+            IList<Pet> list;
+            if (IdOfChild == 0)
+            {
+                list = listOfPetsFamily;
+            }
+            else
+            {
+                list = listOfPetsChild;
+            }
+            int result = list.Count + 1;
             int check = 1;
-            foreach (Pet x in listOfPets)
+            foreach (Pet x in list)
             {
                 if (check == x.Id)
                 {

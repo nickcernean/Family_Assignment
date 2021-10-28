@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Models;
@@ -15,7 +16,6 @@ namespace Family_Assignment.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            
             allFamilies = await fileReader.GetAllFamiliesAsync();
             toShowFamilies = allFamilies;
         }

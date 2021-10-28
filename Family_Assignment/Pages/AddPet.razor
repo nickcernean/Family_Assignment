@@ -4,6 +4,12 @@
 @inject NavigationManager NavMgr
 @* <h3>AddPet</h3> *@
 
+@if (StreetName == null)
+{
+    <p>family not found</p>
+}
+else
+{
 @if (IdOfChild == 0)
 {
     <EditForm Model="@petToAdd">
@@ -16,7 +22,7 @@
                     <h3 class="inline-block w-40 text-right 
                                                                          font-bold text-green-700">AddPet</h3>
                 </div>
-                
+
                 <div class="flex items-center mb-5">
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="name" class="inline-block w-20 mr-6 text-right 
@@ -65,7 +71,7 @@ else
                     <h3 class="inline-block w-40 text-right 
                                                                          font-bold text-green-700">AddPet</h3>
                 </div>
-                
+
                 <div class="flex items-center mb-5">
                     <!--         tip - here neede inline-block , but why? -->
                     <label for="name" class="inline-block w-20 mr-6 text-right 
@@ -101,4 +107,5 @@ else
             </div>
         </div>
     </EditForm>
+}
 }

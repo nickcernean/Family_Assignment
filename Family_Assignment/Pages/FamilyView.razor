@@ -4,6 +4,12 @@
 @inject IFamilyReader fileReader
 @inject NavigationManager NavMgr
 
+
+@if (toShowAdults == null || toShowChildren == null || toShowPets == null)
+{
+    <p>no family found</p>
+}
+else{
 @* <h4>Family</h4> *@
 
 <div class="overflow-x-auto">
@@ -428,3 +434,4 @@
         </div>
     </div>
 </div>
+}

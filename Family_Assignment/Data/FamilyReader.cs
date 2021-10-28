@@ -50,11 +50,9 @@ namespace Family_Assignment.Data
                 string serializedFamily = JsonConvert.SerializeObject(family);
                 StringContent content = new StringContent(serializedFamily, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PatchAsync($"{uri}/Family/{family.StreetName}/{family.HouseNumber}", content);
-                Console.WriteLine(response.StatusCode);
-                Console.WriteLine(await response.Content.ReadAsStringAsync());
-
+                
                 int tophere = 0;
-                Console.WriteLine("updating family...");
+                
             }
             catch (Exception e)
             {
