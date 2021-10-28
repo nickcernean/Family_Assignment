@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Family_Assignment.Pages
 {
-    public partial class Login : ComponentBase
+    public partial class Login_Register : ComponentBase
     {
         private string username;
         private string password;
@@ -21,6 +21,23 @@ namespace Family_Assignment.Pages
             try
             {
                await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
+                username = "";
+                password = "";
+                NavigationManager.NavigateTo("/");
+            }
+            catch (Exception e)
+            {
+                errorMessage = e.Message;
+            }
+        }
+        
+        public async Task PerformRegister()
+        {
+            errorMessage = "";
+            try
+            {
+                ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateRegister(username, password);
+                ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
                 username = "";
                 password = "";
                 NavigationManager.NavigateTo("/");
