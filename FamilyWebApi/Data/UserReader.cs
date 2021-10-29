@@ -8,13 +8,13 @@ namespace FamilyWebApi.Data
 {
     public class UserReader : IUserReader
     {
-        private FileContext FileContext;
+        private FileContext fileContext;
         private IList<User> users;
 
         public UserReader()
         {
-            FileContext = new FileContext();
-            users = FileContext.Users;
+            fileContext = new FileContext();
+            users = fileContext.Users;
         }
 
 
@@ -41,7 +41,7 @@ namespace FamilyWebApi.Data
             }
 
             users.Add(userToRegister);
-            FileContext.SaveChanges();
+            fileContext.SaveChanges();
             return userToRegister;
         }
     }

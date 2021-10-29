@@ -10,14 +10,14 @@ namespace FamilyWebApi.Data
 {
     public class FileReader : IFamilyReader
     {
-        private FileContext FileContext;
+        private FileContext fileContext;
         private IList<Family> families;
         
 
         public FileReader()
         {
-            FileContext = new FileContext();
-            families = FileContext.Families;
+            fileContext = new FileContext();
+            families = fileContext.Families;
         }
 
         public async Task<IList<Family>> GetAllFamiliesAsync()
@@ -28,7 +28,7 @@ namespace FamilyWebApi.Data
         public async Task<Family> AddFamilyAsync(Family family)
         {
             families.Add(family);
-            FileContext.SaveChanges();
+            fileContext.SaveChanges();
             return family;
         }
 
@@ -38,7 +38,7 @@ namespace FamilyWebApi.Data
                 families.FirstOrDefault(
                     t => t.StreetName.Equals(streetName) && t.HouseNumber == houseNumber);
             families.Remove(family);
-            FileContext.SaveChanges();
+            fileContext.SaveChanges();
         }
 
         public async Task<Family> UpdateFamilyAsync(Family family)
@@ -50,7 +50,7 @@ namespace FamilyWebApi.Data
             families.RemoveAt(indexOf);
             familyToUpdate = family;
             families.Insert(indexOf, familyToUpdate);
-            FileContext.SaveChanges();
+            fileContext.SaveChanges();
             Console.WriteLine("updated");
             return familyToUpdate;
         }
