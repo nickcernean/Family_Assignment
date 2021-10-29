@@ -20,16 +20,10 @@ namespace Family_Assignment.Pages
         private IList<Pet> allPets;
         private IList<Adult> toShowAdults;
         private IList<Child> toShowChildren;
-        private IList<Pet> toShowPets;
         
-
         private string filterBy;
 
-        private string? filterByIdArg;
-        private string? filterByFirstNameArg;
-        private string? filterByLastNameArg;
-        private string? filterByAgeArg;
-        
+        private string? filterArgument;
 
         public Family updateFamily;
 
@@ -41,28 +35,17 @@ namespace Family_Assignment.Pages
             allPets =updateFamily.Pets;
             toShowAdults = allAdults;
             toShowChildren = allChildren;
-            toShowPets = allPets;
         }
         
-        public void FilterBy(ChangeEventArgs eventArgs)
+        private void FilterBy(ChangeEventArgs eventArgs)
         {
             filterBy = eventArgs.Value.ToString();
         }
         
-        public void FilterArg(ChangeEventArgs eventArgs, String typeOfObject)
+        private void FilterArg(ChangeEventArgs eventArgs, String typeOfObject)
         {
-            switch (filterBy)
-            {
-                case "Id":
-                    filterByIdArg = eventArgs.Value.ToString();
-                    break;
-                case "FirstName":
-                    filterByFirstNameArg = eventArgs.Value.ToString();
-                    break;
-                case "LastName":
-                    filterByLastNameArg = eventArgs.Value.ToString();
-                    break;
-            }
+            filterArgument = eventArgs.Value.ToString();
+            
 
             if (typeOfObject.Equals("Adult"))
             {
@@ -75,34 +58,34 @@ namespace Family_Assignment.Pages
             
         }
 
-        public void ExecuteFilteringAdults()
+        private void ExecuteFilteringAdults()
         {
             switch (filterBy)
             {
                 case "Id":
-                    toShowAdults = allAdults.Where(t => t.Id.ToString().Contains(filterByIdArg.ToString())).ToList();
+                    toShowAdults = allAdults.Where(t => t.Id.ToString().Contains(filterArgument)).ToList();
                     break;
                 case "FirstName":
-                    toShowAdults = allAdults.Where(t => t.FirstName.Contains(filterByFirstNameArg)).ToList();
+                    toShowAdults = allAdults.Where(t => t.FirstName.Contains(filterArgument)).ToList();
                     break;
                 case "LastName":
-                    toShowAdults = allAdults.Where(t => t.LastName.Contains(filterByLastNameArg)).ToList();
+                    toShowAdults = allAdults.Where(t => t.LastName.Contains(filterArgument)).ToList();
                     break;
                 
             }
         }
-        public void ExecuteFilteringChildren()
+        private void ExecuteFilteringChildren()
         {
             switch (filterBy)
             {
                 case "Id":
-                    toShowChildren = allChildren.Where(t => t.Id.ToString().Contains(filterByIdArg.ToString())).ToList();
+                    toShowChildren = allChildren.Where(t => t.Id.ToString().Contains(filterArgument)).ToList();
                     break;
                 case "FirstName":
-                    toShowChildren = allChildren.Where(t => t.FirstName.Contains(filterByFirstNameArg)).ToList();
+                    toShowChildren = allChildren.Where(t => t.FirstName.Contains(filterArgument)).ToList();
                     break;
                 case "LastName":
-                    toShowChildren = allChildren.Where(t => t.LastName.Contains(filterByLastNameArg)).ToList();
+                    toShowChildren = allChildren.Where(t => t.LastName.Contains(filterArgument)).ToList();
                     break;
                 
             }

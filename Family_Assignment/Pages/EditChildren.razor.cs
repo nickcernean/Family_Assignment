@@ -6,7 +6,7 @@ namespace Family_Assignment.Pages
 {
     public partial class EditChildren : ComponentBase
     {
-        [Parameter] public int Id { set; get; }
+        [Parameter] public int IdOfChild { set; get; }
         [Parameter] public string StreetName { get; set; }
         [Parameter] public int HouseNumber { get; set; }
 
@@ -16,12 +16,12 @@ namespace Family_Assignment.Pages
         protected override async Task OnInitializedAsync()
         {
             familyToEdit = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
-            childToEdit = familyToEdit.Children.Find(t => t.Id == Id);
+            childToEdit = familyToEdit.Children.Find(t => t.Id == IdOfChild);
         }
 
         private async Task Update()
         {
-            Child update = familyToEdit.Children.Find(t => t.Id == Id);
+            Child update = familyToEdit.Children.Find(t => t.Id == IdOfChild);
             update = childToEdit;
             await fileReader.UpdateFamilyAsync(familyToEdit);
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");

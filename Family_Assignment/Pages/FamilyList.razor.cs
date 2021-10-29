@@ -20,7 +20,7 @@ namespace Family_Assignment.Pages
             toShowFamilies = allFamilies;
         }
 
-        public void NavigateToFamily(String StreetName, int HouseNumber)
+        private void NavigateToFamily(String StreetName, int HouseNumber)
         {
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }

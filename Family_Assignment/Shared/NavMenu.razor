@@ -21,18 +21,8 @@
 
 
 @code {
-  [CascadingParameter]
-  protected Task<AuthenticationState> AuthStat { get; set; }
   
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-  public async Task PerformLogout()
+  private async Task PerformLogout()
   {
     ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
     NavigationManager.NavigateTo("/");

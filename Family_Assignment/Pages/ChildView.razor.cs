@@ -11,13 +11,11 @@ namespace Family_Assignment.Pages
 {
     public partial class ChildView : ComponentBase
     {
-        [Parameter] public int Id { set; get; }
+        [Parameter] public int IdOfChild { set; get; }
         [Parameter] public string StreetName { get; set; }
         [Parameter] public int HouseNumber { get; set; }
 
         private Child childToView { get; set; }
-        private List<Pet> childsPets { get; set; }
-        private List<Interest> childsInterests { get; set; }
 
         private Family updateFamily;
 
@@ -25,32 +23,30 @@ namespace Family_Assignment.Pages
         protected override async Task OnInitializedAsync()
         {
             updateFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
-            childToView = updateFamily.Children.Find(t => t.Id == Id);
-            childsPets = childToView.Pets;
-            childsInterests = childToView.Interests;
+            childToView = updateFamily.Children.Find(t => t.Id == IdOfChild);
         }
 
-        public async Task DeletePet(Pet pet)
+        private async Task DeletePet(Pet pet)
         {
             
-            updateFamily.Children.Find(x => x.Id == Id).Pets.Remove(pet);
+            updateFamily.Children.Find(x => x.Id == IdOfChild).Pets.Remove(pet);
             await fileReader.UpdateFamilyAsync(updateFamily);
         }
 
-        public async Task DeleteInterests(Interest interest)
+        private async Task DeleteInterests(Interest interest)
         {
-            updateFamily.Children.First(x => x.Id == Id).Interests.Remove(interest);
+            updateFamily.Children.First(x => x.Id == IdOfChild).Interests.Remove(interest);
             await fileReader.UpdateFamilyAsync(updateFamily);
         }
 
-        public void NavigateToAddPet()
+        private void NavigateToAddPet()
         {
-            NavMgr.NavigateTo($"AddPet/{StreetName}/{HouseNumber}/{Id}");
+            NavMgr.NavigateTo($"AddPet/{StreetName}/{HouseNumber}/{IdOfChild}");
         }
 
-        public void NavigateToAddInterest()
+        private void NavigateToAddInterest()
         {
-            NavMgr.NavigateTo($"AddInterest/{StreetName}/{HouseNumber}/{Id}");
+            NavMgr.NavigateTo($"AddInterest/{StreetName}/{HouseNumber}/{IdOfChild}");
         }
     }
 }

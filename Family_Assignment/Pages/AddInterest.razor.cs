@@ -22,7 +22,7 @@ namespace Family_Assignment.Pages
         private async Task AddNewInterest()
         {   ////edit it 
             family.Children.Find(t => t.Id == IdOfChild).Interests.Add(interestToAdd);
-           await fileReader.UpdateFamilyAsync(family);
+            await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{IdOfChild}");
         }
     }

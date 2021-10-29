@@ -1,4 +1,4 @@
-﻿@page "/ChildView/{StreetName}/{HouseNumber:int}/{Id:int}"
+﻿@page "/ChildView/{StreetName}/{HouseNumber:int}/{IdOfChild:int}"
 @using Family_Assignment.Data
 @using Models
 @inject IFamilyReader fileReader
@@ -102,7 +102,7 @@ else{
             </tr>
             </thead>
             <tbody class="text-gray-700 text-sm font-light">
-            @foreach (Interest item in childsInterests)
+            @foreach (Interest item in childToView.Interests)
             {
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                     <td class="py-3 px-6 text-left whitespace-nowrap">
@@ -190,7 +190,7 @@ else{
             </tr>
             </thead>
             <tbody class="text-gray-700 text-sm font-light">
-            @foreach (Pet item in childsPets)
+            @foreach (Pet item in childToView.Pets)
             {
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                     <td class="py-3 px-6 text-left whitespace-nowrap">

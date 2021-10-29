@@ -15,14 +15,14 @@ namespace Family_Assignment.Pages
 
         private Pet petToAdd;
         private Family family;
-        private IList<Pet> listOfPetsFamily;
-        private IList<Pet> listOfPetsChild;
+        private IList<Pet> petsInFamily;
+        private IList<Pet> petsInChild;
         protected override async Task OnInitializedAsync()
         {
             petToAdd = new Pet();
             family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
-            listOfPetsFamily = family.Pets;
-            listOfPetsChild = family.Children.Find(t => t.Id == IdOfChild).Pets;
+            petsInFamily = family.Pets;
+            petsInChild = family.Children.Find(t => t.Id == IdOfChild).Pets;
         }
 
         private async Task AddNewPetToChild()
@@ -47,11 +47,11 @@ namespace Family_Assignment.Pages
             IList<Pet> list;
             if (IdOfChild == 0)
             {
-                list = listOfPetsFamily;
+                list = petsInFamily;
             }
             else
             {
-                list = listOfPetsChild;
+                list = petsInChild;
             }
             int result = list.Count + 1;
             int check = 1;

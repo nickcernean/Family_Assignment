@@ -1,4 +1,4 @@
-@page "/EditChildren/{StreetName}/{HouseNumber:int}/{Id:int}"
+@page "/EditChildren/{StreetName}/{HouseNumber:int}/{IdOfChild:int}"
 @using Family_Assignment.Data
 @inject IFamilyReader fileReader
 @inject NavigationManager NavMgr
@@ -19,7 +19,7 @@ else
     <div class="flex items-center justify-center">
              
              <h3 class="inline-block w-40 text-right 
-                                                 font-bold text-green-700">Edit Children: @Id</h3> 
+                                                 font-bold text-green-700">Edit Children: @IdOfChild</h3> 
           </div>
 
       <!--       flex - asjad korvuti, nb! flex-1 - element kogu ylejaanud laius -->

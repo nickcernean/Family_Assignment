@@ -5,7 +5,7 @@
 @inject NavigationManager NavMgr
 
 
-@if (toShowAdults == null || toShowChildren == null || toShowPets == null)
+@if (toShowAdults == null || toShowChildren == null || allPets == null)
 {
     <p>no family found</p>
 }
@@ -392,7 +392,7 @@ else{
                     </tr>
                     </thead>
                     <tbody class="text-gray-700 text-sm font-light">
-                    @foreach (Pet item in toShowPets)
+                    @foreach (Pet item in allPets)
                     {
                         <tr class="border-b border-gray-200 hover:bg-gray-100">
                             <td class="py-3 px-6 text-left whitespace-nowrap">

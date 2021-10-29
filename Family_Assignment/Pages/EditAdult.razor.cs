@@ -32,7 +32,7 @@ namespace Family_Assignment.Pages
         {
             Adult updateAdult = familyToEdit.Adults.Find(t => t.Id == adultToEdit.Id);
             updateAdult = adultToEdit;
-           await fileReader.UpdateFamilyAsync(familyToEdit);
+            await fileReader.UpdateFamilyAsync(familyToEdit);
            
            
 

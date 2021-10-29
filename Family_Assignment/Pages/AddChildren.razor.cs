@@ -13,8 +13,6 @@ namespace Family_Assignment.Pages
         [Parameter] public int HouseNumber { get; set; }
 
         private Child childToAdd;
-        private Interest childInterests;
-        private Pet childPets;
         private IList<Child> allChildren;
 
         protected override async Task OnInitializedAsync()
@@ -28,14 +26,14 @@ namespace Family_Assignment.Pages
         {
             childToAdd.Interests = new List<Interest>();
             childToAdd.Pets = new List<Pet>();
-            childToAdd.Id = getNewId();
+            childToAdd.Id = GetNewId();
             Family forUpdate = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             forUpdate.Children.Add(childToAdd);
             await fileReader.UpdateFamilyAsync(forUpdate);
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
 
-        private int getNewId()
+        private int GetNewId()
         {
             int result = allChildren.Count + 1;
             int check = 1;

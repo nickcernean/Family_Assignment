@@ -21,11 +21,7 @@ namespace Models
 
             this.password = password;
         }
-
-        public static bool IsLegalPassword(string password)
-        {
-            return IsLegal(password) == null;
-        }
+        
 
         private static string IsLegal(string password)
         {

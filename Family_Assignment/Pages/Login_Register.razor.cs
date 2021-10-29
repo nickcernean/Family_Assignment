@@ -15,7 +15,7 @@ namespace Family_Assignment.Pages
     
     
     
-        public async Task PerformLogin()
+        private async Task PerformLogin()
         {
             errorMessage = "";
             try
@@ -31,7 +31,7 @@ namespace Family_Assignment.Pages
             }
         }
         
-        public async Task PerformRegister()
+        private async Task PerformRegister()
         {
             errorMessage = "";
             try
@@ -47,10 +47,6 @@ namespace Family_Assignment.Pages
                 errorMessage = e.Message;
             }
         }
-
-        public void NavigateToRegister()
-        {
-            NavigationManager.NavigateTo("/register");
-        }
+        
     }
 }
