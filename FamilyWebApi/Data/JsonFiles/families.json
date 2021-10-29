@@ -44,12 +44,6 @@
         ],
         "Pets": [
           {
-            "Id": 2,
-            "Species": "s",
-            "Name": "s",
-            "Age": 11
-          },
-          {
             "Id": 1,
             "Species": "a",
             "Name": "a",
@@ -67,7 +61,14 @@
         "Sex": "M"
       }
     ],
-    "Pets": []
+    "Pets": [
+      {
+        "Id": 3,
+        "Species": "d",
+        "Name": "d",
+        "Age": 22
+      }
+    ]
   },
   {
     "StreetName": "Innovation Avenue",

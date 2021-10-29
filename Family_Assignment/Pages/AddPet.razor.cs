@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Family_Assignment.Data;
 using Microsoft.AspNetCore.Components;
@@ -22,37 +23,31 @@ namespace Family_Assignment.Pages
             petToAdd = new Pet();
             family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             petsInFamily = family.Pets;
-            petsInChild = family.Children.Find(t => t.Id == IdOfChild).Pets;
+            if (IdOfChild > 0)
+            {
+                petsInChild = family.Children.Find(t => t.Id == IdOfChild).Pets;
+            }
         }
 
         private async Task AddNewPetToChild()
-        {//edit it 
-            petToAdd.Id = GetNewId();
-            family.Children.Find(t => t.Id == IdOfChild).Pets.Add(petToAdd);
-            await fileReader.UpdateFamilyAsync(family);
-            NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{IdOfChild}");
+        {
+                petToAdd.Id = GetNewId(petsInChild);
+                family.Children.First(t => t.Id == IdOfChild).Pets.Add(petToAdd);
+                await fileReader.UpdateFamilyAsync(family);
+                NavMgr.NavigateTo($"ChildView/{StreetName}/{HouseNumber}/{IdOfChild}");
         }
 
         private async Task AddNewPetToFamily()
         {
-            petToAdd.Id = GetNewId();
+            petToAdd.Id = GetNewId(petsInFamily);
             family = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             family.Pets.Add(petToAdd);
             await fileReader.UpdateFamilyAsync(family);
             NavMgr.NavigateTo($"FamilyView/{StreetName}/{HouseNumber}");
         }
 
-        private int GetNewId()
+        private int GetNewId(IList<Pet> list)
         {
-            IList<Pet> list;
-            if (IdOfChild == 0)
-            {
-                list = petsInFamily;
-            }
-            else
-            {
-                list = petsInChild;
-            }
             int result = list.Count + 1;
             int check = 1;
             foreach (Pet x in list)
