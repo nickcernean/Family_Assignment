@@ -17,21 +17,6 @@
         "EyeColor": "Brown",
         "Weight": 39.8,
         "Height": 174
-      },
-      {
-        "JobTitle": {
-          "JobTitle": "no tittle",
-          "Salary": 0
-        },
-        "Age": 222,
-        "Sex": "M",
-        "Id": 1,
-        "FirstName": "a",
-        "LastName": "a",
-        "HairColor": "a",
-        "EyeColor": "a",
-        "Weight": 2,
-        "Height": 2
       }
     ],
     "Children": [
