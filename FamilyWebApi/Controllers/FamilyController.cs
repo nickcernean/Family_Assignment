@@ -40,7 +40,7 @@ namespace FamilyWebApi.Controllers
         [Route("{streetName}/{houseNumber:int}")]
         public async Task<ActionResult<Family>> GetFamilyAsync(string streetName, int houseNumber)
         {
-            Console.WriteLine("get family");
+            
             try
             {
                 Family family = await familyReader.GetFamilyAsync(streetName, houseNumber);

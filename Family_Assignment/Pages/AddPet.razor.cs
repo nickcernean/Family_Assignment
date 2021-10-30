@@ -18,6 +18,7 @@ namespace Family_Assignment.Pages
         private Family family;
         private IList<Pet> petsInFamily;
         private IList<Pet> petsInChild;
+
         protected override async Task OnInitializedAsync()
         {
             petToAdd = new Pet();

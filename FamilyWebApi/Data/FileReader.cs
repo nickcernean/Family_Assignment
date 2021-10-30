@@ -57,8 +57,9 @@ namespace FamilyWebApi.Data
 
         public async Task<Family> GetFamilyAsync(string streetName, int houseNumber)
         {
-            return families.FirstOrDefault(family =>
+             Family family= families.FirstOrDefault(family =>
                 family.StreetName.Equals(streetName) && family.HouseNumber.Equals(houseNumber));
+             return family;
         }
 
         

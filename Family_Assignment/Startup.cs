@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Syncfusion.Blazor;
 
 namespace Family_Assignment
 {
@@ -30,6 +31,7 @@ namespace Family_Assignment
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSyncfusionBlazor();
             services.AddSingleton<IFamilyReader, FamilyReader>();
             services.AddScoped<IUserReader, UserReader>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();

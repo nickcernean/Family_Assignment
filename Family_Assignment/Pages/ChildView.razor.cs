@@ -16,6 +16,8 @@ namespace Family_Assignment.Pages
         [Parameter] public int HouseNumber { get; set; }
 
         private Child childToView { get; set; }
+        private List<Pet> childsPets { get; set; }
+        private List<Interest> childsInterests { get; set; }
 
         private Family updateFamily;
 
@@ -24,27 +26,29 @@ namespace Family_Assignment.Pages
         {
             updateFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             childToView = updateFamily.Children.Find(t => t.Id == IdOfChild);
+            childsPets = childToView.Pets;
+            childsInterests = childToView.Interests;
         }
 
-        private async Task DeletePet(Pet pet)
+        public async Task DeletePet(Pet pet)
         {
             
-            updateFamily.Children.Find(x => x.Id == IdOfChild).Pets.Remove(pet);
+            updateFamily.Children.Find(x => x.Id == childToView.Id)?.Pets.Remove(pet);
             await fileReader.UpdateFamilyAsync(updateFamily);
         }
 
-        private async Task DeleteInterests(Interest interest)
+        public async Task DeleteInterests(Interest interest)
         {
             updateFamily.Children.First(x => x.Id == IdOfChild).Interests.Remove(interest);
             await fileReader.UpdateFamilyAsync(updateFamily);
         }
 
-        private void NavigateToAddPet()
+        public void NavigateToAddPet()
         {
             NavMgr.NavigateTo($"AddPet/{StreetName}/{HouseNumber}/{IdOfChild}");
         }
 
-        private void NavigateToAddInterest()
+        public void NavigateToAddInterest()
         {
             NavMgr.NavigateTo($"AddInterest/{StreetName}/{HouseNumber}/{IdOfChild}");
         }

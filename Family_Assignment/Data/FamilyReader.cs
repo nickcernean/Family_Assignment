@@ -51,7 +51,6 @@ namespace Family_Assignment.Data
                 StringContent content = new StringContent(serializedFamily, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PatchAsync($"{uri}/Family/{family.StreetName}/{family.HouseNumber}", content);
                 
-                int tophere = 0;
                 
             }
             catch (Exception e)
