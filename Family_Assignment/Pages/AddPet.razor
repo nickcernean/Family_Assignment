@@ -12,7 +12,7 @@ else
 {
 @if (IdOfChild == 0)
 {
-    <EditForm Model="@petToAdd">
+    <EditForm Model="@petToAdd" OnValidSubmit="AddNewPetToFamily">
         <div class="bg-green-100 py-32 min-h-screen px-0">
             <!--   tip; mx-auto -- jagab ilusti keskele  -->
             <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto shadow-xl">
@@ -50,8 +50,7 @@ else
 
                 <div class="text-right text-red-700">
                     <DataAnnotationsValidator/> <ValidationSummary/>
-                    1
-                    <button class="py-3 px-8 bg-green-400 text-white font-bold" @onclick="@AddNewPetToFamily">Submit</button>
+                    <button type="submit" class="py-3 px-8 bg-green-400 text-white font-bold" >Submit</button>
                 </div>
 
 
@@ -61,7 +60,7 @@ else
 }
 else
 {
-    <EditForm Model="@petToAdd">
+    <EditForm Model="@petToAdd" OnValidSubmit="AddNewPetToChild">
         <div class="bg-green-100 py-32 min-h-screen px-0">
             <!--   tip; mx-auto -- jagab ilusti keskele  -->
             <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto shadow-xl">
@@ -99,7 +98,7 @@ else
 
                 <div class="text-right text-red-700">
                     <DataAnnotationsValidator/> <ValidationSummary/>
-                    <button class="py-3 px-8 bg-green-400 text-white font-bold" @onclick="@AddNewPetToChild">Submit</button>
+                    <button type="submit" class="py-3 px-8 bg-green-400 text-white font-bold">Submit</button>
                 </div>
 
 
