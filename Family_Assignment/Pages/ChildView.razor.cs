@@ -16,8 +16,6 @@ namespace Family_Assignment.Pages
         [Parameter] public int HouseNumber { get; set; }
 
         private Child childToView { get; set; }
-        private List<Pet> childsPets { get; set; }
-        private List<Interest> childsInterests { get; set; }
 
         private Family updateFamily;
 
@@ -26,8 +24,6 @@ namespace Family_Assignment.Pages
         {
             updateFamily = await fileReader.GetFamilyAsync(StreetName, HouseNumber);
             childToView = updateFamily.Children.Find(t => t.Id == IdOfChild);
-            childsPets = childToView.Pets;
-            childsInterests = childToView.Interests;
         }
 
         public async Task DeletePet(Pet pet)
